@@ -23,18 +23,18 @@ public class AdminServiceImpl implements AdminService {
 
 
     @Override
-    public RiseAdmin getRiseAdmin(String userName) throws Exception {
-        return (RiseAdmin) dao.findForObject("AdminServiceMapper.getRiseAdmin", userName);
+    public RiseAdmin getRiseAdmin(String account) throws Exception {
+        return (RiseAdmin) dao.findForObject("AdminServiceMapper.getRiseAdmin", account);
     }
 
     @Override
-    public RiseTeacher getRiseTeacher(String userName) throws Exception {
-        return (RiseTeacher) dao.findForObject("AdminServiceMapper.getRiseTeacher", userName);
+    public RiseTeacher getRiseTeacher(String account) throws Exception {
+        return (RiseTeacher) dao.findForObject("AdminServiceMapper.getRiseTeacher", account);
     }
 
     @Override
-    public RiseStudent getRiseStudent(String userName) throws Exception {
-        return (RiseStudent) dao.findForObject("AdminServiceMapper.getRiseStudent", userName);
+    public RiseStudent getRiseStudent(String account) throws Exception {
+        return (RiseStudent) dao.findForObject("AdminServiceMapper.getRiseStudent", account);
     }
 
     @Override

@@ -141,11 +141,16 @@
     </div>
 
     <!-- 底部 -->
-    <footer class="main-footer">
+    <footer class="main-footer" style="text-align: center">
         <!-- To the right -->
         <div class="pull-right hidden-xs"></div>
         <!-- Default to the left -->
-        <strong><span id="copyright"></span>
+        <strong>
+            <span id="copyright" style="color: #333;">2016-2018
+                <a style="color: #333;" href="http://www.swu-rise.net.cn">RISE</a>
+                <span style="padding: 0 3px;">|</span>西南大学25教1001<span style="padding: 0 1px;">|</span>
+                <a style="color: #333;" href="https://github.com/RISE-SWU/">GitHub</a>
+            </span>
         </strong>
     </footer>
 
@@ -259,7 +264,7 @@
 <script type="text/javascript" language="javascript">
 
     $(document).ready(function () {
-        getLoginKeyValue();
+
     });
 
 

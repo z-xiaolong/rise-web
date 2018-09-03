@@ -45,11 +45,11 @@ public class LoginController extends BaseController {
 
     @RequestMapping(value = "login")
     @SystemLog(method = "登录系统")
-    public ModelAndView login(@RequestParam(required = false) String userName,
+    public ModelAndView login(@RequestParam(required = false) String account,
                               @RequestParam(required = false) String password,
                               @RequestParam(required = false) String type,
                               HttpServletRequest request) throws Exception {
-        logBefore(logger, "++++++++++ 管理员登录 ++++++++++username=" + userName);
+        logBefore(logger, "++++++++++ 管理员登录 ++++++++++account=" + account);
 
         //在session中加入参数
         HttpSession session = request.getSession();
@@ -57,7 +57,7 @@ public class LoginController extends BaseController {
         mv.setViewName("common/login");
 
         //处理已经进入首页后刷新  当前 地址栏
-        if (userName == null || userName == "") {
+        if (account == null || account == "") {
             logger.info("++++++++++ 用户名为空,即在首页地址栏刷新 ++++++++++");
             if (session.getAttribute("user") == null) {
                 return mv;
@@ -69,7 +69,7 @@ public class LoginController extends BaseController {
 
         //管理员登录
         if ("1".equals(type)) {
-            RiseAdmin user = adminServiceImpl.getRiseAdmin(userName);
+            RiseAdmin user = adminServiceImpl.getRiseAdmin(account);
             System.out.println(user);
             if (user == null || !user.getPassword().equals(MD5.md5(password))) {
                 mv.addObject("Msg", "用户名或密码错误！");
@@ -84,7 +84,7 @@ public class LoginController extends BaseController {
         }
         //教师登录
         if ("2".equals(type)) {
-            RiseTeacher user = adminServiceImpl.getRiseTeacher(userName);
+            RiseTeacher user = adminServiceImpl.getRiseTeacher(account);
             System.out.println(user);
             if (user == null) {
                 mv.addObject("Msg", "用户名或密码错误！");
@@ -143,7 +143,7 @@ public class LoginController extends BaseController {
 
             user.setPassword(MD5.md5(newPassword));
 
-            RiseAdmin riseAdmin = adminServiceImpl.getRiseAdmin(user.getUserName());
+            RiseAdmin riseAdmin = adminServiceImpl.getRiseAdmin(user.getAccount());
             if (null != riseAdmin && !riseAdmin.getPassword().equals(MD5.md5(oldPassword))) {
                 return InterfaceResult.returnResult(3, "原始密码错误", data);
             }

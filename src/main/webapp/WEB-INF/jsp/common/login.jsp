@@ -34,8 +34,8 @@
         <div id="Msg" align="center" style="color: red;height: 20px;">${Msg }</div>
         <div id="logins">
             <form action="${pageContext.request.contextPath}/login" method="post">
-                <input type="text" name="userName" id="username" placeholder="请输入用户名"/>
-                <input type="password" name="password" id="password" placeholder="请输入密码"/>
+                <input type="text" name="account" id="account" placeholder="请输入用户账号!"/>
+                <input type="password" name="password" id="password" placeholder="请输入密码!"/>
 
                 <input type="radio" name="type" checked="checked" value="1"
                        style="margin-top: 10px; margin-left:30px; color:#ffffff; cursor: pointer;"/>
@@ -51,13 +51,21 @@
         </div>
     </div>
 </div>
+<div class="container-fluid login-copyright">
+    <p id="copyright" style="color: #ffffff;">2016-2018
+        <a style="color: #fff;" href="http://www.swu-rise.net.cn">RISE</a>
+        <span style="padding: 0 10px;">|</span>西南大学25教1001
+        <span style="padding: 0 10px;">|</span>
+        <a style="color: #fff;" href="https://github.com/RISE-SWU/">Github</a>
+    </p>
+</div>
 </body>
 <script type="text/javascript">
     $(".login-submit").click(function () {
         var password = $("#password").val();
-        var username = $("#username").val();
-        if (username == "") {
-            $("#Msg").text("请输入用户名!");
+        var account = $("#account").val();
+        if (account == "") {
+            $("#Msg").text("请输入用户账号!");
             return false;
         }
         if (password == "") {

@@ -16,11 +16,11 @@ public interface AdminService {
      * @Date 2018/6/9 19:26
      * 通过RiseUser某个属性获取用户信息
      */
-    public RiseAdmin getRiseAdmin(String userName) throws Exception;
+    public RiseAdmin getRiseAdmin(String account) throws Exception;
 
-    public RiseTeacher getRiseTeacher(String userName) throws Exception;
+    public RiseTeacher getRiseTeacher(String account) throws Exception;
 
-    public RiseStudent getRiseStudent(String userName) throws Exception;
+    public RiseStudent getRiseStudent(String account) throws Exception;
 
     public void updateAdminPassword(RiseAdmin riseAdmin) throws Exception;
 

@@ -9,18 +9,45 @@ import com.rise.entity.base.BaseUser;
  */
 public class RiseAdmin {
 
-    private int userID;
+    private int id;
+    private int status;
+    private String account;
     private String userName;
     private String password;
     private String phone;
     private String email;
+    private String type;
 
-    public int getUserID() {
-        return userID;
+    public String getType() {
+        return type;
     }
 
-    public void setUserID(int userID) {
-        this.userID = userID;
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
+
+    public String getAccount() {
+        return account;
+    }
+
+    public void setAccount(String account) {
+        this.account = account;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getUserName() {
@@ -58,11 +85,14 @@ public class RiseAdmin {
     @Override
     public String toString() {
         return "RiseAdmin{" +
-                "userID=" + userID +
+                "id=" + id +
+                ", status=" + status +
+                ", account='" + account + '\'' +
                 ", userName='" + userName + '\'' +
                 ", password='" + password + '\'' +
                 ", phone='" + phone + '\'' +
                 ", email='" + email + '\'' +
+                ", type='" + type + '\'' +
                 '}';
     }
 }

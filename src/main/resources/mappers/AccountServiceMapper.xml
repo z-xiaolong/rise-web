@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="AdminServiceMapper">
+<mapper namespace="AccountServiceMapper">
 
     <!--查找账号信息-->
-    <select id="getRiseAdmin" parameterType="java.lang.String"
+    <select id="getAllAdmin" parameterType="com.rise.util.PageData"
             resultType="com.rise.entity.common.RiseAdmin">
         SELECT
             id,
@@ -16,12 +16,12 @@
             `type`
         FROM
             rise_admin
-        WHERE
-            account = #{account}
+        order by id
+		LIMIT #{start},#{length};
     </select>
 
-    <!-- 修改密码 -->
-    <update id="updateAdminPassword" parameterType="com.rise.entity.common.RiseAdmin">
-		UPDATE rise_admin  SET  `password` = #{password} WHERE account = #{account}
-	</update>
+    <!--获取RiseAdmin总数 -->
+    <select id="getAdminCount" parameterType="com.rise.util.PageData" resultType="int">
+		SELECT count(id) FROM rise_admin;
+	</select>
 </mapper>

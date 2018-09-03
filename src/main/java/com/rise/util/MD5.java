@@ -30,6 +30,6 @@ public class MD5 {
 	}
 
 	public static void main(String[] args) {
-		System.out.println(md5("superadmin"));
+		System.out.println(md5("admin"));
 	}
 }

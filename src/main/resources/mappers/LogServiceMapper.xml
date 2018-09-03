@@ -19,7 +19,12 @@
 
     <!--获取操作日志 -->
     <select id="getAllLogs" parameterType="com.rise.util.PageData" resultType="com.rise.entity.common.Log">
-		SELECT * FROM system_log order by operationTime desc LIMIT #{start},#{length};
+		SELECT
+		  *
+		FROM system_log
+		order by operationTime
+		desc
+		  LIMIT #{start},#{length};
 	</select>
 
     <!--获取操作日志总数 -->
