@@ -1,0 +1,65 @@
+.content-header>.breadcrumb {
+    position: relative;
+    float: none;
+    font-size: 14px;
+    margin-left: 15px;
+    margin-bottom: 2px;
+    font-weight: bold;
+    margin-top: 15px;
+    background: #fff;
+    top: 0;
+    left: 0;
+    padding-left: 0;
+}
+
+.breadcrumb>li {
+    display: inline-block;
+}
+.content {
+    padding: 10px 15px;
+}
+.redcor{
+    width: 90px;
+    display: inline-block;
+    vertical-align: top;
+}
+.imgcont{
+    margin-bottom: 15px;
+}
+
+.edui-container {
+    position: relative;
+    border: 1px solid #d4d4d4;
+    box-shadow: 2px 2px 5px #d3d6da;
+    background-color: #fff;
+    z-index: 999;
+    display: inline-block;
+    vertical-align: top;
+    width: 94%!important;
+    min-width: 500px;
+    margin-left: 88px;
+    margin-top: -25px;
+}
+.edui-editor-body .edui-body-container {
+    width: 100%!important;
+}
+.promptbox{
+    background: #eee;
+    padding: 15px 10px;
+    margin-bottom: 10px;
+}
+.prompt{
+    padding: 1px 8px;
+    border-radius: 10px;
+    background: rgba(19,107,251,1);
+    color: #fff;
+    margin-right: 10px;
+    font-weight: bold;
+}
+.tis_input{
+    font-size: 13px;
+    width: 400px;
+}
+.sfm_box{
+    padding-left: 93px;
+}

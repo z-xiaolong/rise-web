@@ -1,0 +1,248 @@
+.ctc_city{
+	margin: 10px 15px;
+    padding: 7px 15px;
+    background: #eee;
+    /*border: 1px solid #ddd;*/
+}
+.btn{
+	background: transparent;
+	outline: none;
+}
+.dropdown_menu{
+	position: absolute;
+    z-index: 1000;
+    display: none;
+    float: left;
+    min-width: 200px;
+    margin: 2px 0 0;
+    font-size: 14px;
+    list-style: none;
+    background-color: #fff;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: 1px solid #ccc;
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: 4px;
+    -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
+    box-shadow: 0 6px 12px rgba(0,0,0,.175);
+
+	padding: 5px 0 0 0;
+	text-align: center;
+	left: 70px;
+	top: 82%;
+}
+.dropdown_menu li{
+	padding: 5px;
+	cursor: pointer;
+}
+.dropdown_menu li a{
+	color: #333;
+	text-decoration: none;
+	outline:none;
+}
+.flowbak{
+	background: #eee;
+    padding: 5px;
+}
+.flowbak span{
+	padding: 0 5px;
+	cursor: pointer;
+}
+
+.content {
+    padding: 10px 15px;
+    min-width: 1000px;
+}
+
+table tbody{
+    text-align: center;
+}
+
+.bnsbox{
+    overflow: auto;
+    height: 670px;
+}
+.businesID{
+    width: 15%;
+}
+.businesMC{
+    width: 20%;
+}
+.businesZYW{
+    width: 32%;
+}
+.businesCZ{
+    width: 33%;
+    color: #136BFB;
+}
+.businesCZ span{
+    margin: 0 10px;
+    cursor: pointer;
+}
+.table>tbody>tr>td{
+    vertical-align: middle;
+}
+.table>thead>tr>th{
+    text-align: center;
+    background: #eee;
+}
+.table-bordered>thead>tr>td, .table-bordered>thead>tr>th {
+     border-bottom-width: 1px; 
+}
+.content-header>.breadcrumb {
+    position: relative;
+    float: none;
+    font-size: 14px;
+    margin-left: 15px;
+    margin-bottom: 2px;
+    font-weight: bold;
+    margin-top: 15px;
+    background: #fff;
+    top: 0;
+    left: 0;
+    padding-left: 0;
+}
+.tlylebox{
+    margin-top: 5px;
+    margin-bottom: 20px;
+}
+.tlylebox button{
+    float: right;
+    padding: 4px 18px;
+    border-radius: 5px;
+    background: rgba(31,202,62,1);
+    color: #fff;
+    font-weight: bold;
+    border: 0;
+    outline: none;
+    margin-right: 17px;
+}
+.table-bordered{
+    border: 1px solid #ddd;
+}
+.table-bordered>tbody>tr>td, .table-bordered>tbody>tr>th, .table-bordered>tfoot>tr>td, .table-bordered>tfoot>tr>th, .table-bordered>thead>tr>td, .table-bordered>thead>tr>th {
+    border: 1px solid #ddd;
+    padding: 5px 8px;
+}
+.modelID{
+    width: 13%;
+}
+.modelMC{
+    width: 22%;
+}
+.modelMS{
+    width: 44%;
+}
+.modelCZ{
+    width: 21%;
+}
+.bordercor{
+    padding: 3px 25px;
+    border: 1px solid #ddd;
+}
+.modelCZ{
+        color: #136BFB;
+}
+.modelCZ span{
+    margin: 0 10px;
+    cursor: pointer;
+}
+.bcbfb{
+    float: right;
+    padding: 8px 18px;
+    border-radius: 5px;
+    background: #fff;
+    color: #333;
+    font-weight: bold;
+    border: 0;
+    outline: none;
+    margin-right: 17px;
+    margin-top: -6px;
+    font-size: 15px;
+}
+.contentedit{
+    padding: 0;
+    position: relative;
+    min-width: 1000px;
+}
+.leftmdlbox{
+    display: inline-block;
+    width: 70%;
+}
+.rightmdlbox{
+    display: inline-block;
+    width: 29%;
+    border: 1px solid #ddd;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    min-width: 300px;
+}
+.edtlebox{
+    padding: 10px;
+    background: #eee;
+}
+.edtlebox button{
+    float: right;
+    padding: 4px 18px;
+    border-radius: 5px;
+    background: rgba(31,202,62,1);
+    color: #fff;
+    font-weight: bold;
+    border: 0;
+    outline: none;
+    margin-right: 5px;
+    margin-top: -4px;
+}
+.edui-container {
+    position: relative;
+    border: 1px solid #d4d4d4;
+    box-shadow: 2px 2px 5px #d3d6da;
+    background-color: #fff;
+    z-index: 999;
+    display: inline-block;
+    vertical-align: top;
+    width: 100%!important;
+    min-width: 500px;
+
+}
+.edui-editor-body .edui-body-container {
+    width: 100%!important;
+}
+.ytjzd,.mbsz{
+    padding: 12px 25px;
+    background: #fff;
+    color: #136BFB;
+    font-weight: bold;
+    border: 0;
+    outline: none;
+    width: 50%;
+    border-bottom: 1px solid #ddd;
+}
+.mbsz{
+    background: #eee;
+    color: #333;
+    margin-left: -3px;
+}
+.mbszbox{
+    padding: 10px;
+}
+.mbszbox input{
+    width: 100%;
+    height: 30px;
+    margin-bottom: 10px;
+}
+.mbszbox textarea{
+    width: 100%;
+    height: 100px;
+}
+.tr_zdmc{
+    width: 70%;
+}
+.td_cr{
+    color: #136BFB;
+    cursor: pointer;
+}
+
+

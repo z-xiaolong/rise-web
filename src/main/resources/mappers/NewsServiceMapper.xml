@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="NewsServiceMapper">
+
+    <!--查询所有新闻-->
+    <select id="getAllNewsList" resultType="com.rise.entity.common.News">
+		SELECT
+			*
+		FROM
+			newsListCN
+	</select>
+
+    <select id="getNewsById" resultType="com.rise.entity.common.News">
+        SELECT
+            *
+        FROM
+            newsListCN
+        WHERE
+            id = #{id};
+    </select>
+
+    <!--批量删除-->
+    <delete id="deleteNewsList" parameterType="java.util.List">
+        DELETE
+        FROM newsListCN
+        WHERE id IN
+        <foreach collection="list" item="News" open="(" separator="," close=")">
+            #{News.id}
+        </foreach>
+    </delete>
+
+    <!--发布已有新闻-->
+    <update id="uploadNewsStatus" parameterType="com.rise.entity.common.News">
+        UPDATE newsListCN
+        SET status = 1,
+            uploadTime = NOW()
+        WHERE id = #{id}
+	</update>
+
+    <!--更新新闻-->
+    <update id="updateNews" parameterType="com.rise.entity.common.News">
+        UPDATE newsListCN
+        <trim prefix="SET" prefixOverrides=",">
+                createTime = NOW(),
+            <if test="title != null and title != ''">
+                title = #{title},
+            </if>
+            <if test="author != null and author != ''">
+                author = #{author},
+            </if>
+            <if test="tag != null and tag != ''">
+                tag = #{tag},
+            </if>
+            <if test="status == 0">
+                uploadTime = NULL,
+            </if>
+            <if test="status == 1">
+                uploadTime = NOW(),
+            </if>
+            <if test="status != null and status != ''">
+                status = #{status},
+            </if>
+            <if test="content != null and content != ''">
+                content = #{content},
+            </if>
+        </trim>
+        WHERE
+            id = #{id}
+    </update>
+
+    <insert id="addNews" parameterType="com.rise.entity.common.News">
+        INSERT INTO newsListCN(
+            title,
+            tag,
+            author,
+            createTime,
+            uploadTime,
+            status,
+            content
+        )
+        VALUES(
+            #{title},
+            #{tag},
+            #{author},
+            NOW(),
+            <if test="status == 1">
+                NOW(),
+            </if>
+            <if test="status == 0">
+                NULL,
+            </if>
+            #{status},
+            #{content}
+        )
+    </insert>
+
+</mapper>

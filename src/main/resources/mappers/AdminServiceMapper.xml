@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="AdminServiceMapper">
+
+    <!--查找账号信息-->
+    <select id="getRiseAdmin" parameterType="java.lang.String"
+            resultType="com.rise.entity.common.RiseAdmin">
+        SELECT
+            id as userID,
+            userName,
+            password,
+            phone,
+            email
+        FROM
+            rise_admin
+        WHERE
+            userName = #{userName}
+    </select>
+
+    <!-- 修改密码 -->
+    <update id="updateAdminPassword" parameterType="com.rise.entity.common.RiseAdmin">
+		UPDATE rise_admin  SET  `password` = #{password} WHERE userName = #{userName}
+	</update>
+</mapper>

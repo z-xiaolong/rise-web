@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="LogServiceMapper">
+
+    <insert id="saveLog" parameterType="com.rise.entity.common.Log">
+        INSERT INTO system_log(
+            userName,
+            operationTime,
+            description,
+            status,
+            ip,
+            responseTime
+        )
+        VALUES
+        (#{userName},#{operationTime},#{description},#{status},#{ip},#{responseTime})
+
+    </insert>
+
+    <!--获取操作日志 -->
+    <select id="getAllLogs" parameterType="com.rise.util.PageData" resultType="com.rise.entity.common.Log">
+		SELECT * FROM system_log order by operationTime desc LIMIT #{start},#{length};
+	</select>
+
+    <!--获取操作日志总数 -->
+    <select id="getAllLogsCount" parameterType="com.rise.util.PageData" resultType="int">
+		SELECT count(id) FROM system_log;
+	</select>
+
+</mapper>

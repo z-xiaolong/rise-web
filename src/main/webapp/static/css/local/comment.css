@@ -1,0 +1,70 @@
+
+.commentMaskbox{
+    width: 720px;
+    height: 80%;
+    background: #fff;
+    margin: auto;
+    margin-top: 100px;
+    border-radius: 3px;
+}
+.mask_title{
+    text-align: center;
+    background: #eee;
+    padding: 10px;
+    font-weight: bold;
+    border-radius: 3px;
+}
+.remove{
+    display: inline-block;
+    float: right;
+}
+.f4btn {
+    border: 1px solid #ddd;
+    background: #F5F5F5;
+    padding: 3px 10px;
+}
+.f4btn .caret {
+    margin-left: 30px;
+}
+.dropdown_menu li {
+    padding: 5px 25px;
+    cursor: pointer;
+    text-align: left;
+}
+.dropdown_menu {
+    position: absolute;
+    z-index: 1000;
+    display: none;
+    float: left;
+    min-width: 92px;
+    margin: 2px 0 0;
+    font-size: 14px;
+    list-style: none;
+    background-color: #fff;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: 1px solid #ccc;
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: 4px;
+    -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
+    box-shadow: 0 6px 12px rgba(0,0,0,.175);
+    padding: 5px 0 0 0;
+    text-align: center;
+    left: 46px;
+    top: 82%;
+}
+.table-bordered>tbody>tr>td, .table-bordered>tbody>tr>th, .table-bordered>tfoot>tr>td, .table-bordered>tfoot>tr>th, .table-bordered>thead>tr>td, .table-bordered>thead>tr>th {
+    border: 1px solid #ddd;
+    padding: 5px 8px;
+}
+.table>thead>tr>th{
+    text-align: center;
+    background: #eee;
+}
+
+.dropdown_menu li:hover{
+	background: #AADFFD;
+    border-color: #367fa9;
+    color: #fff;
+    text-decoration: none;
+}

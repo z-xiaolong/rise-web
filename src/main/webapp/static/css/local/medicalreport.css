@@ -1,0 +1,230 @@
+/*#edreportmask{
+	display: block;
+}*/
+.batchaddbox,.medicalreportbox,.edreportbox{
+	width: 720px;
+    background: #fff;
+    margin: auto;
+    margin-top: 100px;
+    border-radius: 3px;
+}
+.medicalreportbox{
+    padding-bottom: 80px;
+
+}
+.mask_title {
+    text-align: center;
+    background: #eee;
+    padding: 10px;
+    font-weight: bold;
+    border-radius: 3px;
+}
+.remove {
+    display: inline-block;
+    float: right;
+}
+.marginauto{
+    margin: 15px 10px 5px 10px;
+    padding-bottom: 15px;
+    padding: 15px;
+}
+.border{
+    border: 1px solid #ddd;
+}
+.down_nline{
+    margin: 0 -15px;
+}
+
+.dbemployees{
+    /*border: 1px solid #ddd;*/
+    margin: 15px 0;
+}
+.yg_type{
+    display: inline-block;
+    padding: 6px 0px;
+    /*color: rgba(252,13,27,1);*/
+    font-weight: bold;
+}
+
+.medicalbox{
+	margin-top: 15px;
+    border: 1px solid #ddd;
+    padding: 10px 15px;
+}
+.edmedicalbox{
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+.medicalbox textarea,.edmedicalbox textarea{
+	width: 100%;
+	height: 200px;
+}
+.btncl{
+    display: inline-block;
+    padding: 5px 25px;
+    background: rgba(31,202,62,1);
+    color: #fff;
+    font-weight: normal;
+    cursor: pointer;
+    float: right;
+    margin-top: 1px;
+    /*margin-right: 10px;*/
+    border-radius: 5px;
+}
+.table{
+	margin-bottom: 0;
+}
+.table_boy {
+    overflow: auto;
+    height: 150px;
+}
+.table-bordered>thead>tr>td, .table-bordered>thead>tr>th {
+    border-bottom-width: 1px;
+}
+.table_hed thead>tr{
+	background: #eee;
+	text-align: center;
+}
+.table_hed thead>tr>th,.table_boy tbody>tr>td{
+	text-align: center;
+	width: 37%;
+}
+.table_hed thead>tr>th.ed,.table_boy tbody>tr>td.ed{
+	width: 26%;
+}
+
+
+.btnbox{
+    padding: 6px 10px;
+    text-align: center;
+    /*border: 1px solid #ddd;*/
+    color: #000;
+    background: #eee;
+}
+.btn_back,.btn_cx{
+    padding: 6px 30px;
+    border-radius: 5px;
+    background: rgba(31,202,62,1);
+    color: #fff;
+    font-weight: bold;
+    border: 0;
+    outline: none;
+}
+.btn_back{
+    border: 1px solid #ddd;
+    background: #fff;
+    color: #333;
+    margin-right: 20px;
+}
+
+.picbox ul {
+    padding: 0;
+    margin-bottom: 5px;
+}
+.picbox ul li {
+    padding: 10px 7px 10px 3px;
+    display: inline-block;
+}
+.picbox img {
+    width: 90px;
+}
+.resultbox{
+    height: 160px;
+}
+.resultbox .cont{
+    height: 110px;
+    overflow: auto;
+}
+/*.editbox{
+    padding-top: 10px;
+}*/
+.editbox div{
+    display: inline-block;
+}
+.editbox div:first-child{
+    width: 50%;
+}
+
+.editbox p{
+    margin: 10px 0 0 0;
+}
+
+/********************************/
+.addImg {
+	width:120px;
+	height: 120px;
+	font-size: 5em;
+	color:#000;
+}
+
+
+.picbox ul img{
+	width:120px;
+	height:120px;
+	border: 0px;	
+   /* margin-top:-23px;*/
+}
+.picbox ul .del{
+    cursor: pointer; 
+    cursor: pointer;
+    top: -55px;
+    left: -3px;
+    z-index: 500;
+    font-size: 18px;
+    color: red;
+       
+}
+
+.file{
+    position: relative;
+    display: inline-block;
+    background: #D0EEFF;
+    border: 1px solid #99D3F5;
+    border-radius: 4px;
+    width: 120px;
+    height: 120px;
+    color: #1E88C7;
+    text-decoration: none;
+    text-indent: 0;
+    text-align: center;
+    font-size: 5em;
+}
+.file .fil{
+    position: absolute;
+    width: 100px;
+    height: 30px;
+    right: 0;
+    top: 0;
+    opacity: 0;
+}
+
+.file .filclas{
+	position: absolute;
+    width: 100px;
+    height: 30px;
+    right: 0;
+    top: 0;
+    opacity: 0;
+}
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

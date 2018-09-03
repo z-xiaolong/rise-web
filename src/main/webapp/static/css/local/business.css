@@ -1,0 +1,454 @@
+
+.bs_title{
+    padding: 15px;
+    background: #eee;
+    font-size: 18px;
+    border-bottom: 1px solid #ddd;
+}
+.down_nline{
+    border-bottom: 1px solid #ddd;
+}
+.down_outline{
+	margin: 10px -10px 0px -10px;
+    border-bottom: 1px solid #ddd;
+}
+.redcor{
+	color: red;
+}
+.graycor{
+	color: #666;
+}
+.bluecor{
+	color: blue;
+}
+.lightbluecor{
+	color: #136BFB;
+}
+.redcle{
+	position: absolute;
+    top: 0;
+    right: 0px;
+    background: red;
+    width: 12px;
+    height: 12px;
+    border-radius: 6px;
+}
+.content-header>.breadcrumb {
+	position: relative;
+    float: none;
+    font-size: 14px;
+    margin-left: 20px;
+    margin-bottom: 18px;
+    font-weight: bold;
+    background: #fff;
+}
+.bs_leftbox{
+	width: 70%;
+	display: inline-block;
+}
+.bs_city{
+    padding: 15px;
+    background: #eee;
+    border: 1px solid #ddd;
+}
+.bs_city_lf{
+	display: inline-block;
+    color: #000;
+}
+.bs_city_rg{
+	display: inline-block;
+	float: right;
+    color: #136BFB;
+}
+.bs_xzzmbox{
+	margin-top: 15px;
+	border: 1px solid #ddd;
+	padding: 6px 10px 2px 10px;
+}
+.citybox{
+	border-bottom: 1px solid #ddd;
+	padding: 6px 10px 2px 10px;
+}
+.bs_xzzmbox .cardno,.citybox .cardno{
+	margin-bottom: 6px;
+	color: #666;
+}
+.bs_xzzmbox img,.citybox img{
+	width: 60px;
+	margin: 12px 0;
+	vertical-align: top;
+}
+.xz_type{
+	display: inline-block;
+    font-size: 13px;
+    padding: 12px 10px 2px 10px;
+    color: #000;
+}
+.xz_type p{
+	margin-bottom: 5px;
+}
+
+.xz_type .time{
+	color: #666;
+}
+.xz_type .shtye{
+	color: #136BFB;
+}
+.receivebox{
+	margin-top: 15px;
+	border: 1px solid #ddd;
+	color: #000;
+}
+.receiverg{
+	float: right;
+}
+.receivebox ol{
+	list-style: none;
+    margin: 0;
+    padding: 10px;
+    font-size: 13px;
+}
+.receivebox ol li{
+    margin-bottom: 10px;
+}
+.li_left{
+	margin-left: 68px;
+}
+.bs_content{
+	margin-left: 45px;
+    margin-top: -20px;
+    margin-bottom: 0;
+}
+.fj_box,.fj_box2{
+	margin-top: 5px;
+    border: 1px solid #ddd;
+    padding: 3px;
+    background: #eee;
+    width: 250px;
+}
+.fj_box2{
+    margin-top: 10px;
+}
+
+.picbox{
+	border: 1px solid #ddd;
+	color: #000;
+}
+.bs_p{
+	margin-top: 2px;
+	margin-left: 10px;
+	margin-bottom: 6px;
+}
+.picbox ul{
+	padding: 0 0 0 10px;
+	margin-bottom: 0;
+}
+.picbox ul li{
+	padding: 0 7px 10px 0;
+    display: inline-block;
+}
+.picbox img{
+	width: 90px;
+}
+.datebox,.remarkbox,.describebox,.choosebox{
+	border: 1px solid #ddd;
+	color: #000;
+	padding: 15px 10px;
+}
+.btnbox{
+	padding: 5px 10px;
+	text-align: center;
+	margin: 15px 0 40px 0;
+	border: 1px solid #ddd;
+	color: #000;
+	background: #eee;
+}
+.btn_pf,.btn_bl,.btn_bh{
+	padding: 6px 40px;
+    border-radius: 5px;
+    background: rgba(26,155,252,1);
+    color: #fff;
+    font-weight: bold;
+    border: 0;
+    outline: none;
+}
+.btn_bl{
+  	background: rgba(31,202,62,1);
+  	margin: 0 10px;
+}
+.btn_bh{
+	background: rgba(252,13,27,1);
+}
+.bs_ritbox{
+	position: absolute;
+    top: 15px;
+    bottom: 0px;
+    margin-left: 15px;
+    border: 1px solid #ddd;
+    display: inline-block;
+    width: 30%;
+    vertical-align: top;    
+}
+.ritbtnbox{
+	background: #eee;
+	border-bottom: 1px solid #ddd;
+}
+.bljd,.ydjl{
+	padding: 12px 25px;
+    background: #fff;
+    color: #136BFB;
+    font-weight: bold;
+    border: 0;
+    outline: none;
+}
+.ydjl{
+	background: #eee;
+	color: #333;
+	margin-left: -3px;
+}
+
+.bljd_ul,.ydjl_ul{
+	padding-left: 20px;
+	padding-top: 5px;
+}
+.ydjl_ul{
+	padding-top: 0px;
+}
+.ydjl_div{
+	display: none;
+}
+.bs_ritbox ul li{
+    border: 1px solid #ddd;
+    background: #eee;
+    border-radius: 3px;
+    padding: 10px 0 0 10px;
+    width: 97%;
+    margin-top: 12px;
+    display: inline-block;
+}
+.bs_ritbox ul li p{
+	margin-bottom: 6px;
+}
+
+/*.bs_ritbox ul li:before {
+   	position: absolute;
+    content: "";
+    top: -19px;
+    bottom: 0px;
+    left: -12px;
+    width: 1px;
+    background-color: #136BFB;
+    z-index: 0;
+}*/
+.left_line {
+    position: absolute;
+    content: "";
+    top: 45px;
+    bottom: 0px;
+    left: 8px;
+    width: 1px;
+    background-color: #136BFB;
+    z-index: 0;
+}
+.blue_cle{
+	position: relative;
+    float: left;
+    margin-top: -6px;
+    z-index: 3;
+    width: 12px;
+    height: 12px;
+    margin-left: -28px;
+}
+.bljd_name{
+	color: #666;
+	font-size: 12px;
+	margin-left: 2px;
+}
+.bljd_time{
+	margin-top: -2px;
+	color: #666;
+	font-size: 13px;
+	margin-left: 2px;
+}
+.bljd_pics img{
+	width: 60px;
+}
+.fjmz_box{
+	margin-top: 7px;
+    border: 1px solid #ddd;
+    padding: 3px;
+    background: #fff;
+    width: 97%;
+}
+.fjmz_top{
+	margin-top: 10px;
+}
+.places{
+	text-align: center;
+}
+.places p{
+	margin-bottom: 20px;
+}
+.lplace,.rplace{
+	display: inline-block;
+    width: 36%;
+    padding-top: 20px;
+    vertical-align: middle;
+}
+.redarrow{
+	width: 21%;
+	height: 2px;
+	background: red;
+	display: inline-block;
+}
+
+
+.distributmask,.transferredmask,.rejectmask,.schedulemask{
+	margin-left: 25%;
+    margin-top: 200px;
+	width: 50%;
+	background: #fff; 
+}
+.mask_title{
+	text-align: center;
+    background: #eee;
+    padding: 10px;
+    font-weight: bold;
+}
+.remove{
+	display: inline-block;
+	float: right;
+}
+.modfly{
+	top: -4px;
+    padding: 8px;
+}
+.marauto{
+	margin: 15px;
+}
+.pad_zero{
+  	padding: 0;
+}
+.distributmask table{
+	margin-top: 15px;
+
+}
+.distributmask  thead{
+	background: #eee;
+}
+.distributmask  thead th,.distributmask tbody{
+	text-align: center;
+}
+.maskbtnboxs{
+	background: #eee;
+    text-align: center;
+}
+.maskclear,.masksure,.addaccessory{
+	padding: 5px 30px;
+    margin: 5px 10px;
+    border-radius: 5px;
+  	background: rgba(31,202,62,1);
+    color: #fff;
+    font-weight: bold;
+    border: 0;
+    outline: none;
+}   
+.maskclear{
+	background: #fff;
+    color: #555;
+    border: 1px solid #ddd;
+} 
+.mar_updown{
+	margin: 20px 0;
+}
+.addaccessory{
+	margin: 0;
+	padding: 8px 30px;
+}
+
+.managebox{
+	width: 300px;
+    background: #fff;
+    margin: auto;
+    margin-top: 260px;
+    text-align: center;
+}
+.managebox .ts{
+	padding-top: 10px;
+}
+.managebox .cont{
+	font-size: 16px;
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+.managebox .clear,.managebox .sure{
+    padding: 8px 0px;
+    background: #fff;
+    color: #555;
+    border: 0;
+    outline: none;
+    width: 49.5%;
+}
+.managebox .clear{
+	color: #136BFB;
+	border-right: 1px solid #ddd;
+}
+.rejectmask{
+	width: 42%;
+}
+#reject textarea{
+	width: 100%;
+    height: 70px;
+}
+.rejectextbox{
+	margin: 15px;
+	padding: 40px 0 50px 0;
+}
+
+/*#transferred{
+	display: block;
+}*/
+.schedulemask{
+	margin-top: 180px;
+}
+.schedulebox{
+
+}
+.schedulebox textarea{
+	width: 80%;
+    height: 70px;
+}
+.addpicbox{
+	border: 1px solid #ddd;
+    padding: 15px;
+    margin-top: 5px;
+}
+.addpicbox img{
+	width: 100px;
+	height: 100px;
+}
+.accessorybox{
+	border: 1px solid #ddd;
+    padding: 12px 15px 10px 15px;;
+    margin-top: 10px;
+}
+.transferredmask{
+	width: 42%;
+}
+.transferredbox{
+	margin-top: 10px;
+}
+.transferredbox textarea{
+	width: 100%;
+    height: 80px;
+    margin-bottom: 15px;
+}
+.transferredbox input{
+	width: 50%;
+    margin-bottom: 20px;
+}
+
+.transferredtype{
+    padding: 15px;
+    background: #eee;
+}

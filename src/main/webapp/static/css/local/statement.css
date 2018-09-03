@@ -1,0 +1,127 @@
+
+.statementMaskbox{
+    width: 960px;
+    min-height: 500px;
+    background: #fff;
+    margin: auto;
+    margin-top: 100px;
+    border-radius: 3px;
+}
+.marginauto{
+    margin: 10px 10px 5px 10px;
+    padding-bottom: 20px;
+}
+.mask_title{
+    text-align: center;
+    background: #eee;
+    padding: 10px;
+    font-weight: bold;
+    border-radius: 3px;
+}
+.remove{
+    display: inline-block;
+    float: right;
+}
+
+#businessDetail table{
+    margin-bottom: 0;
+}
+#businessDetail thead{
+    background: #eee;
+}
+#businessDetail thead th , #businessDetail tbody{
+    text-align: center;
+}
+#businessDetail .table>tbody>tr>td ,#businessDetail .table-bordered>thead>tr>th{
+    padding: 4px 8px;
+}
+
+.input_count{
+    margin-top: -14px;
+    margin-right: 3px;
+    width: 120px;
+}
+.btn_back,.btn_cx{
+    padding: 6px 30px;
+    border-radius: 5px;
+    background: rgba(31,202,62,1);
+    color: #fff;
+    font-weight: bold;
+    border: 0;
+    outline: none;
+}
+.btn_back{
+    border: 1px solid #ddd;
+    background: #fff;
+    color: #333;
+    margin-right: 20px;
+}
+#statement2{
+	display: none;
+}
+.table-bordered>tbody>tr>td, .table-bordered>tbody>tr>th, .table-bordered>tfoot>tr>td, .table-bordered>tfoot>tr>th, .table-bordered>thead>tr>td, .table-bordered>thead>tr>th {
+    border: 1px solid #ddd;
+    padding: 5px 8px;
+}
+.table>thead>tr>th{
+    text-align: center;
+    background: #eee;
+}
+
+.dyj_zt{
+	position: relative;
+	top:6px;
+	margin-bottom: 10px;
+}
+.dyj_zt p{
+	display: inline-block;
+}
+
+.f4btn {
+    border: 1px solid #ddd;
+    background: #F5F5F5;
+    padding: 3px 10px;
+}
+.f4btn .caret {
+    margin-left: 30px;
+}
+.dropdown_menu li {
+    padding: 5px 25px;
+    cursor: pointer;
+    text-align: left;
+}
+.dropdown_menu {
+    position: absolute;
+    z-index: 1000;
+    display: none;
+    float: left;
+    min-width: 92px;
+    margin: 2px 0 0;
+    font-size: 14px;
+    list-style: none;
+    background-color: #fff;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: 1px solid #ccc;
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: 4px;
+    -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
+    box-shadow: 0 6px 12px rgba(0,0,0,.175);
+    padding: 5px 0 0 0;
+    text-align: center;
+    left: 46px;
+}
+.dropdown_menu li:hover{
+	background: #AADFFD;
+    border-color: #367fa9;
+    color: #fff;
+    text-decoration: none;
+}
+.exportStyle{
+	width: 90%;
+	margin-bottom: 20px;
+	margin-top: 20px;
+}
+.bnsbox{
+	min-width: 1000px;
+}

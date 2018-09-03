@@ -1,0 +1,137 @@
+
+.ctc_title{
+	padding: 15px;
+	background: #eee;
+    font-size: 18px;
+    border-bottom: 1px solid #ddd;
+}
+
+.ctc_city{
+	margin: 10px 15px;
+    padding: 7px 15px;
+    background: #eee;
+    /*border: 1px solid #ddd;*/
+}
+.btn{
+	background: transparent;
+	outline: none;
+}
+.dropdown_menu{
+	position: absolute;
+    z-index: 1000;
+    display: none;
+    float: left;
+    min-width: 200px;
+    margin: 2px 0 0;
+    font-size: 14px;
+    list-style: none;
+    background-color: #fff;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: 1px solid #ccc;
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: 4px;
+    -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
+    box-shadow: 0 6px 12px rgba(0,0,0,.175);
+
+	padding: 5px 0 0 0;
+	text-align: center;
+	left: 70px;
+	top: 82%;
+}
+.dropdown_menu li{
+	padding: 5px;
+	cursor: pointer;
+}
+.dropdown_menu li a{
+	color: #333;
+	text-decoration: none;
+	outline:none;
+}
+.flowbak{
+	background: #eee;
+    padding: 5px;
+}
+.flowbak span{
+	padding: 0 5px;
+	cursor: pointer;
+}
+
+.content-header>.breadcrumb {
+    position: relative;
+    float: none;
+    font-size: 14px;
+    margin-left: 15px;
+    margin-bottom: 2px;
+    font-weight: bold;
+    margin-top: 15px;
+    background: #fff;
+    top: 0;
+    left: 0;
+    padding-left: 0;
+}
+.marauto{
+	margin: 15px;
+}
+.content{
+	min-width: 860px;
+}
+.ctrcul{
+	list-style: none;
+    border: 1px solid #ddd;
+    padding: 0;
+    border-bottom: 0;
+}
+.ctrcul li{
+	padding: 10px 0px 10px 20px;
+    border-bottom: 1px solid #ddd;
+}
+.ctrcul li:first-child{
+	padding: 15px 20px;
+}
+.ctrcul li .ht{
+	color: red;
+}
+.ctrcul li .htc{
+	float: right;
+}
+.ctrcul li .pct{
+	display: inline-block;
+    vertical-align: top;
+    width: 94%;
+    padding-left: 20px;
+    /*text-align: right;*/
+}
+
+.table{
+	text-align: center;
+}
+.lightgray{
+ 	background: #eee;
+}
+.table-bordered>tbody>tr>td,.table-bordered{
+	border: 1px solid #ddd;
+}
+.btnbox{
+	padding: 6px 10px;
+	text-align: center;
+	margin: 15px 0 40px 0;
+	border: 1px solid #ddd;
+	color: #000;
+	background: #eee;
+}
+.btn_back,.btn_cx{
+	padding: 6px 40px;
+    border-radius: 5px;
+    background: rgba(252,13,27,1);
+    color: #fff;
+    font-weight: bold;
+    border: 0;
+    outline: none;
+}
+.btn_back{
+	border: 1px solid #ddd;
+  	background: #fff;
+  	color: #333;
+  	margin-right: 80px;
+}

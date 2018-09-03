@@ -1,0 +1,189 @@
+
+
+.socialmaskbox,.add_socialmaskbox{
+    width: 720px;
+    background: #fff;
+    margin: auto;
+    margin-top: 100px;
+    border-radius: 3px;
+}
+
+.publicfundbox,.add_publicfundbox{
+    width: 480px;
+    background: #fff;
+    margin: auto;
+    margin-top: 100px;
+    border-radius: 3px;
+}
+
+.add_socialmaskbox{
+    margin-top: 50px; 
+}
+.marginauto{
+    margin: 10px 10px 5px 10px;
+    padding-bottom: 20px;
+}
+.allj{
+    padding: 10px;
+    background: #ddd;
+    /*border: 1px solid #ddd;*/
+}
+.bs_city_lf{
+    display: inline-block;
+    color: #000;
+}
+.bs_city_rg{
+    display: inline-block;
+    float: right;
+    color: rgba(252,13,27,1);;
+}
+.mask_title{
+    text-align: center;
+    background: #eee;
+    padding: 10px;
+    font-weight: bold;
+    border-radius: 3px;
+}
+.remove{
+    display: inline-block;
+    float: right;
+}
+.unitbox p{
+    margin: 0;
+    background: #eee;
+    padding: 5px 0 5px 10px;
+}
+.unitall{
+	text-align: center;
+    margin: 0;
+    background: #eee;
+    padding: 5px 10px  5px 10px;
+    border: 1px solid #ddd;
+}
+.unitall .num{
+    float: right;
+}
+.unitbox .personal{
+    margin-top: 15px;
+    border: 1px solid #ddd;
+}
+
+#socialsecurity table , #socialsecurityEdit table{
+    margin-bottom: 0;
+}
+#socialsecurity thead{
+    background: #eee;
+}
+#socialsecurity thead th , #socialsecurity tbody , #socialsecurityEdit table td{
+    text-align: center;
+}
+#socialsecurity .table>tbody>tr>td ,#socialsecurity .table-bordered>thead>tr>th{
+    padding: 4px 8px;
+}
+#add_socialsecurity table ,#socialsecurityEdit table{
+    margin-bottom: 0;
+}
+#add_socialsecurity thead ,#socialsecurityEdit thead{
+    background: #eee;
+}
+#add_socialsecurity thead th , #add_socialsecurity tbody{
+    text-align: center;
+}
+#socialsecurityEdit thead th , #socialsecurityEdit tbody{
+    text-align: center;
+}
+#add_socialsecurity .table-bordered>thead>tr>th{
+    padding: 4px 8px;
+}
+#socialsecurityEdit .table-bordered>thead>tr>th{
+    padding: 4px 8px;
+}
+#add_socialsecurity .table>tbody>tr>td {
+    padding: 2px 8px;
+    vertical-align: middle;
+    width: 20%;
+}
+#socialsecurityEdit .table>tbody>tr>td {
+    padding: 2px 8px;
+    vertical-align: middle;
+    width: 20%;
+}
+#add_socialsecurity .table>tbody>tr>td:first-child {
+    font-weight: bold;
+}
+#socialsecurityEdit .table>tbody>tr>td:first-child {
+    font-weight: bold;
+}
+#add_socialsecurity tbody input ,#socialsecurityEdit tbody input{
+    width: 100%;
+    height: 26px;
+    text-align: center;
+}
+.input_count{
+    margin-top: -14px;
+    margin-right: 3px;
+    width: 120px;
+}
+.employees{
+    border: 1px solid #ddd;
+    margin: 15px 0;
+}
+.yg_type{
+    display: inline-block;
+    padding: 16px 40px;
+    background: #eee;
+    border-right: 1px solid #ddd;
+    color: rgba(252,13,27,1);;
+    font-weight: bold;
+}
+.yg_name{
+    display: inline-block;
+    border: 1px solid #ddd;
+    width: 260px;
+    text-align: center;
+    padding: 4px;
+    margin-left: 5px;
+}
+.btncl{
+    display: inline-block;
+    padding: 5px 15px;
+    background: rgba(31,202,62,1);
+    color: #fff;
+    margin-left: -5px;
+    /* font-size: 12px; */
+    font-weight: normal;
+    cursor: pointer;
+}
+.btnbox{
+    padding: 6px 10px;
+    text-align: center;
+    border: 1px solid #ddd;
+    color: #000;
+    background: #eee;
+}
+.btn_back,.btn_cx{
+    padding: 6px 30px;
+    border-radius: 5px;
+    background: rgba(31,202,62,1);
+    color: #fff;
+    font-weight: bold;
+    border: 0;
+    outline: none;
+}
+.btn_back{
+    border: 1px solid #ddd;
+    background: #fff;
+    color: #333;
+    margin-right: 20px;
+}
+#shebaogongjijin2{
+	display: none;
+}
+.table-bordered>tbody>tr>td, .table-bordered>tbody>tr>th, .table-bordered>tfoot>tr>td, .table-bordered>tfoot>tr>th, .table-bordered>thead>tr>td, .table-bordered>thead>tr>th {
+    border: 1px solid #ddd;
+    padding: 5px 8px;
+}
+.table>thead>tr>th{
+    text-align: center;
+    background: #eee;
+}
