@@ -1,7 +1,9 @@
 package com.rise.controller.common;
 
+import com.rise.annotation.SystemLog;
 import com.rise.entity.common.RiseAdmin;
 import com.rise.service.AccountService;
+import com.rise.util.MD5;
 import com.rise.util.PageData;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,10 +31,7 @@ public class AccountController extends BasicConroller {
     @RequestMapping(value = "/toAccountManagePage")
     public ModelAndView toBannerPage(HttpServletRequest request) {
         ModelAndView mv = this.getModelAndView();
-        PageData pd = new PageData();
-        pd = this.getPageData();
         mv.setViewName("common/accountManage");
-        pd.put("parentId", 1);
         return mv;
     }
 
@@ -53,4 +52,88 @@ public class AccountController extends BasicConroller {
         map.put("draw", pd.get("draw").toString());//dataTable分页需要
         return map;
     }
+
+    @ResponseBody
+    @RequestMapping(value = "/addAdmin")
+    @SystemLog(method = "增加管理员")
+    public Object addAdmin(RiseAdmin riseAdmin) {
+        Map<String, Object> map = new HashMap<>();
+        riseAdmin.setPassword(MD5.md5(riseAdmin.getAccount()));//初始化密码为account
+        riseAdmin.setStatus(1);//初始化状态
+        System.out.println(riseAdmin);
+        String msg = accountServiceImpl.addAdmin(riseAdmin);
+        map.put("Msg", msg);
+        return map;
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/deleteAdmin")
+    @SystemLog(method = "删除管理员")
+    public Object deleteAdmin(int adminID) {
+        Map<String, Object> map = new HashMap<>();
+        System.out.println("+++++++++++++adminID:" + adminID);
+        String msg = accountServiceImpl.deleteAdmin(adminID);
+        map.put("Msg", msg);
+        return map;
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/disableAdmin")
+    @SystemLog(method = "停用管理员账号")
+    public Object disableAdmin(int adminID) {
+        Map<String, Object> map = new HashMap<>();
+        System.out.println("+++++++++++++adminID:" + adminID);
+        String msg = accountServiceImpl.disableAdmin(adminID);
+        map.put("Msg", msg);
+        return map;
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/enabledAdmin")
+    @SystemLog(method = "启用管理员账号")
+    public Object enabledAdmin(int adminID) {
+        Map<String, Object> map = new HashMap<>();
+        System.out.println("+++++++++++++adminID:" + adminID);
+        String msg = accountServiceImpl.enabledAdmin(adminID);
+        map.put("Msg", msg);
+        return map;
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/getAdminById")
+    public Object getAdminById(int adminID) {
+        Map<String, Object> map = new HashMap<>();
+        System.out.println("+++++++++++++adminID:" + adminID);
+        RiseAdmin admin = accountServiceImpl.getAdminById(adminID);
+        if (admin == null) {
+            map.put("admin", "null");
+            return map;
+        }
+        map.put("admin", admin);
+        return map;
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/updateAdminById")
+    @SystemLog(method = "修改管理员信息" +
+            "")
+    public Object updateAdminById(RiseAdmin riseAdmin) {
+        Map<String, Object> map = new HashMap<>();
+        System.out.println("+++++++++++++admin:" + riseAdmin);
+        String msg = accountServiceImpl.updateAdminById(riseAdmin);
+        map.put("Msg", msg);
+        return map;
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/resetAdminPassword")
+    @SystemLog(method = "重置管理员密码")
+    public Object resetAdminPassword(int adminID) {
+        Map<String, Object> map = new HashMap<>();
+        System.out.println("+++++++++++++admin:" + adminID);
+        String msg = accountServiceImpl.resetAdminPassword(adminID);
+        map.put("Msg", msg);
+        return map;
+    }
+
 }

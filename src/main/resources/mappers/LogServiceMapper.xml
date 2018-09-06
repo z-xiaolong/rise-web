@@ -5,6 +5,7 @@
 
     <insert id="saveLog" parameterType="com.rise.entity.common.Log">
         INSERT INTO system_log(
+            account,
             userName,
             operationTime,
             description,
@@ -13,7 +14,7 @@
             responseTime
         )
         VALUES
-        (#{userName},#{operationTime},#{description},#{status},#{ip},#{responseTime})
+        (#{account},#{userName},#{operationTime},#{description},#{status},#{ip},#{responseTime})
 
     </insert>
 

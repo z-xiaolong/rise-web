@@ -11,7 +11,6 @@
     <!-- Bootstrap 3.3.5 -->
     <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
     <!-- DataTables -->
-
     <link rel="stylesheet" href="/static/plugins/fonts/font-awesome-4.4.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="/static/plugins/datatables/dataTables.bootstrap.css">
     <link rel="stylesheet" href="/static/css/AdminLTE.min.css">
@@ -48,8 +47,6 @@
     <script src="/static/plugins/datepicker/bootstrap-datepicker.js"></script>
     <script src="/static/plugins/datetimepicker/jquery.datetimepicker.full.js"></script>
 
-    <!-- UI组件库 1.0 -->
-    <script src="//webapi.amap.com/ui/1.0/main.js?v=1.0.10"></script>
 
 </head>
 <style type="text/css">
@@ -137,7 +134,7 @@
 <body class="hold-transition skin-blue sidebar-mini">
 
 <section class="content-header">
-    <div class="ctc_title">账号管理</div>
+    <%--<div class="ctc_title">账号管理</div>--%>
     <ul class="typebox">
         <li class="active" flag="1" id="admin" onclick="adminManage();">管理员<span class="redcle"></span></li>
         <li class="" flag="2" id="teacher" onclick="teacherManage()">教师<span class="redcle"></span></li>
@@ -156,13 +153,14 @@
                         <select id="adminStatus" class="form-control">
                             <option value="">全部</option>
                             <option value="0">正常</option>
-                            <option value="1">冻结</option>
+                            <option value="1">停用</option>
                         </select>
                     </div>
 
                     <div class="form-group">
                         <label>查询：</label>
-                        <input style="width: 250px;" class="form-control" type="text" id="adminSearch" placeholder="输入账号名称/姓名、账号、搜索"/>
+                        <input style="width: 250px;" class="form-control" type="text" id="adminSearch"
+                               placeholder="输入账号名称/姓名、账号、搜索"/>
                     </div>
 
                     <div class="form-group">
@@ -171,7 +169,9 @@
 
                     <span style=""></span>
                     <div class="form-group" style="float: right;">
-                        <button type="button" onclick="addAdmin();" data-target="#addAdmin"  class="btn btn-block btn-info ">添加管理员</button>
+                        <button type="button" onclick="addAdmin();" data-target="#addAdmin"
+                                class="btn btn-block btn-info ">添加管理员
+                        </button>
                     </div>
                 </form>
             </div>
@@ -180,14 +180,14 @@
                 <table id="adminConfigList" class="table table-bordered ">
                     <thead>
                     <tr>
-                        <th style="display: none;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id</th>
-                        <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;账号</th>
-                        <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;用户名</th>
-                        <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;电话号码</th>
-                        <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;邮箱</th>
-                        <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;账号类型</th>
-                        <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;状态</th>
-                        <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;操作</th>
+                        <th style="display: none;">id</th>
+                        <th>账号</th>
+                        <th>用户名</th>
+                        <th>电话号码</th>
+                        <th>邮箱</th>
+                        <th>账号类型</th>
+                        <th>状态</th>
+                        <th>操作</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -209,13 +209,14 @@
                         <select id="teacherStatus" class="form-control">
                             <option value="">全部</option>
                             <option value="0">正常</option>
-                            <option value="1">冻结</option>
+                            <option value="1">停用</option>
                         </select>
                     </div>
 
                     <div class="form-group">
                         <label>查询：</label>
-                        <input style="width: 250px;" class="form-control" type="text" id="teacherSearch" placeholder="输入账号名称/姓名、账号、搜索"/>
+                        <input style="width: 250px;" class="form-control" type="text" id="teacherSearch"
+                               placeholder="输入账号名称/姓名、账号、搜索"/>
                     </div>
 
                     <div class="form-group">
@@ -224,25 +225,27 @@
 
                     <span style=""></span>
                     <div class="form-group" style="float: right;">
-                        <button type="button" onclick="addTeacher();" data-target="#addTeacher"  class="btn btn-block btn-info ">添加教师</button>
+                        <button type="button" onclick="addTeacher();" data-target="#addTeacher"
+                                class="btn btn-block btn-info ">添加教师
+                        </button>
                     </div>
                 </form>
             </div>
             <br/>
             <div class="bnsbox">
-                <table id="teacherConfigList" class="table table-bordered ">
+                <table id="teacherConfigList" class="table table-bordered " style="width: 100%">
                     <thead>
                     <tr>
-                        <th style="display: none;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id</th>
-                        <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;账号</th>
-                        <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;姓名</th>
-                        <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;电话</th>
-                        <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;邮箱</th>
-                        <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;办公室</th>
-                        <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;职位</th>
-                        <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;状态</th>
-                        <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;备注</th>
-                        <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;操作</th>
+                        <th style="display: none;">id</th>
+                        <th>账号</th>
+                        <th>姓名</th>
+                        <th>电话</th>
+                        <th>邮箱</th>
+                        <th>办公室</th>
+                        <th>职位</th>
+                        <th>状态</th>
+                        <th>备注</th>
+                        <th>操作</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -264,13 +267,14 @@
                         <select id="studentStatus" class="form-control">
                             <option value="">全部</option>
                             <option value="0">正常</option>
-                            <option value="1">冻结</option>
+                            <option value="1">停用</option>
                         </select>
                     </div>
 
                     <div class="form-group">
                         <label>查询：</label>
-                        <input style="width: 250px;" class="form-control" type="text" id="studentSearch" placeholder="输入账号名称/姓名、账号、搜索"/>
+                        <input style="width: 250px;" class="form-control" type="text" id="studentSearch"
+                               placeholder="输入账号名称/姓名、账号、搜索"/>
                     </div>
 
                     <div class="form-group">
@@ -279,24 +283,26 @@
 
                     <span style=""></span>
                     <div class="form-group" style="float: right;">
-                        <button type="button" onclick="addStudent();" data-target="#addStudent"  class="btn btn-block btn-info ">添加学生</button>
+                        <button type="button" onclick="addStudent();" data-target="#addStudent"
+                                class="btn btn-block btn-info ">添加学生
+                        </button>
                     </div>
                 </form>
             </div>
             <br/>
             <div class="bnsbox">
-                <table id="studentConfigList" class="table table-bordered ">
+                <table id="studentConfigList" class="table table-bordered " style="width: 100%">
                     <thead>
                     <tr>
-                        <th style="display: none;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id</th>
-                        <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;账号</th>
-                        <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;姓名</th>
-                        <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;学号</th>
-                        <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;电话</th>
-                        <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;邮箱</th>
-                        <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;状态</th>
-                        <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;备注</th>
-                        <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;操作</th>
+                        <th style="display: none;">id</th>
+                        <th>账号</th>
+                        <th>姓名</th>
+                        <th>学号</th>
+                        <th>电话</th>
+                        <th>邮箱</th>
+                        <th>状态</th>
+                        <th>备注</th>
+                        <th>操作</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -312,7 +318,8 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                    <button type="button" class="close" data-dismiss="modal" onclick="cancelAddAdmin();"><span
+                            aria-hidden="true">×</span><span class="sr-only">Close</span></button>
                     <h4 class="modal-title" align="center">添加管理员</h4>
                 </div>
                 <div class="modal-body" style="padding-right: 100px; padding-left: 100px;">
@@ -327,15 +334,16 @@
                         </tr>
                         <tr>
                             <td align="center" style="color: red; width: 20%;">*姓名：</td>
-                            <td><input type="text" id="addUserName" maxlength="16" class="form-control" placeholder="请输入用户名"/></td>
+                            <td><input type="text" id="addUserName" maxlength="16" class="form-control"
+                                       placeholder="请输入用户名"/></td>
                         </tr>
                         <tr>
                             <td>&nbsp;</td>
                             <td></td>
                         </tr>
                         <tr>
-                            <td align="center" style="color: red">*手机：</td>
-                            <td><input type="text" id="addPhone" class="form-control" placeholder="请输入手机号码"/></td>
+                            <td align="center" style="color: red">*电话：</td>
+                            <td><input type="text" id="addPhone" class="form-control" placeholder="请输入手机号码(11位)"/></td>
                         </tr>
                         <tr>
                             <td>&nbsp;</td>
@@ -362,13 +370,145 @@
                     <div id="result" style="height:20px;color:red;text-align: center"></div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <button type="button" class="btn btn-default" onclick="cancelAddAdmin();" data-dismiss="modal">取消
+                    </button>&nbsp;&nbsp;&nbsp;&nbsp;
                     <button type="button" class="btn btn-primary" onclick="confirmAddAdmin();">确定</button>
                 </div>
             </div>
         </div>
     </div>
 
+    <!-- 【编辑管理员】弹出窗内容 -->
+    <div class="modal" id="editAdmin" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title" align="center">编辑管理员</h4>
+                </div>
+                <div class="modal-body" style="padding-right: 100px; padding-left: 100px;">
+                    <table style="width: 100%">
+                        <tr>
+                            <td align="center" style="color: red"> *账号：</td>
+                            <td><input class="form-control" type="text" id="updateAccount" disabled="disabled"/></td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td align="center" style="color: red"> *姓名：</td>
+                            <td><input class="form-control" type="text" maxlength="16" id="updateUserName" placeholder="请输入..."/></td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td align="center" style="color: red"> *电话：</td>
+                            <td><input class="form-control" type="text" id="updatePhone" placeholder="请输入..."/></td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td align="center" style="color: red"> *邮箱：</td>
+                            <td><input class="form-control" type="text" id="updateEmail" placeholder="请输入..."/></td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td align="center" style="color: red">*类型：</td>
+                            <td><input type="text" id="updateType" class="form-control" placeholder="请输入..."/></td>
+                        </tr>
+
+                    </table>
+                    <div id="editResult" style="height:20px;color:red;text-align: center"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <button type="button" class="btn btn-primary" onclick="confirmEditAdmin();">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 【删除账户】弹出窗内容 -->
+    <div class="modal" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title" align="center">删除提示</h4>
+                </div>
+                <div class="modal-body">
+                    <h4 align="center">是否删除此账户?</h4>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <button type="button" class="btn btn-primary" onclick="confirmDelete();">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 【停用】弹出窗内容 -->
+    <div class="modal" id="disable" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title" align="center">提示</h4>
+                </div>
+                <div class="modal-body">
+                    <h4 align="center">确定停用？</h4>
+                    <h5 align="center" style="color: gray;">停用后不可登录</h5>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <button type="button" class="btn btn-primary" onclick="confirmDisable();">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 【启用】弹出窗内容 -->
+    <div class="modal" id="enabledAdmin" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title" align="center">提示</h4>
+                </div>
+                <div class="modal-body">
+                    <h4 align="center">确定启用？</h4>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <button type="button" class="btn btn-primary" onclick="confirmEnabled();">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 【重置密码】弹出窗内容 -->
+    <div class="modal" id="resetAdminPassword" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title" align="center">提示</h4>
+                </div>
+                <div class="modal-body">
+                    <h4 align="center">是否将密码重置为初始密码？</h4>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <button type="button" class="btn btn-primary" onclick="confirmResetAdminPassword();">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
 </section>
 
@@ -378,44 +518,46 @@
         //加载数据
         getAdminData();
     });
-
+    var adminID;
+    var keyword;
     //tab页切换
-    $(".content-header ul li").click(function(e){
+    $(".content-header ul li").click(function (e) {
         $this = $(e.target);
         $this.siblings().removeClass('active');//移除同级元素的选中状态
         $this.addClass("active");//元素的选中状态
     })
 
-    var keyword;
+
     function adminManage() {
         getAdminData();
         $("#adminList").show();
         $("#teacherList").hide();
         $("#studentList").hide();
     }
-    
+
     function teacherManage() {
         $("#adminList").hide();
         $("#studentList").hide();
         getTeacherData();
         $("#teacherList").show();
     }
-    
+
     function studentManage() {
         $("#adminList").hide();
         $("#teacherList").hide();
         getStudentData();
         $("#studentList").show();
     }
-    
+
     function getTeacherData() {
-        
+
     }
-    
+
     function getStudentData() {
 
     }
-    //加载数据
+
+    //加载Admin数据
     function getAdminData() {
         var Rstatus = 0;
         var table = $('#adminConfigList').DataTable({
@@ -441,22 +583,24 @@
             //参数显示
             "columns": [
                 {"data": "id", 'sClass': "text-center", "bSortable": false, "visible": false},
-                {"data": "account", 'sClass': "text-center","searching": true},
+                {"data": "account", 'sClass': "text-center", "searching": true},
                 {"data": "userName", 'sClass': "text-center", "searching": true},
                 {"data": "phone", 'sClass': "text-center", "searching": true},
                 {"data": "email", 'sClass': "text-center", "searching": true},
                 {"data": "type", 'sClass': "text-center", "searching": true},
-                {"data": "status", 'sClass': "text-center",
+                {
+                    "data": "status", 'sClass': "text-center",
                     "render": function (data, type, full, meta) {
                         Rstatus = data;
-                        str="<span class='label label-success' style='padding-left:10px;padding-right:10px;padding-top: inherit;' >正常</span> ";
+                        str = "<span class='label label-success' style='padding-left:10px;padding-right:10px;padding-top: inherit;' >正常</span> ";
                         if (data == 0) {
-                            str="<span class='label label-danger' style='padding-left:10px;padding-right:10px;padding-top: inherit;'>冻结</span>";
+                            str = "<span class='label label-danger' style='padding-left:10px;padding-right:10px;padding-top: inherit;'>停用</span>";
                         }
                         return str;
                     }
                 },
-                {"data": "id", 'sClass': "text-center", 'width': '30%',
+                {
+                    "data": "id", 'sClass': "text-center", 'width': '25%',
                     "render": function (data, type, full, meta) {
                         var str = "";
                         str += '<div class="btn-group">';
@@ -464,21 +608,21 @@
                             str += '<button type="button" class="btn btn-sm btn-default" disabled="disabled">权限配置</button>';
                             str += '<button type="button" class="btn btn-sm btn-default" disabled="disabled">编辑</button>';
                             str += '<button type="button" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false" disabled="disabled"> <span class="caret"></span><span class="sr-only">Toggle Dropdown</span></button>';
-                            str += '<button type="button" class="btn btn-sm btn-default" onclick=qiyong(' + data + ');>启用</button>';
+                            str += '<button type="button" class="btn btn-sm btn-default" onclick=enabled(' + data + ');>启用</button>';
                         } else if (Rstatus == 1) {
                             str += '<button type="button" class="btn btn-sm btn-default" onclick=editAuthConfig(' + data + ');>权限配置</button>';
-                            str += '<button type="button" class="btn btn-sm btn-default" onclick=bainjiAdmin(' + data + ');>编辑</button>';
+                            str += '<button type="button" class="btn btn-sm btn-default" onclick=editAdmin(' + data + ');>编辑</button>';
                             str += '<button type="button" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false"> <span class="caret"></span><span class="sr-only">Toggle Dropdown</span></button>';
-                            str += 	'<ul class="dropdown-menu" role="menu">';
-                            str += 			'<li><a href="#" onclick=chongzhimima(' + data +');>重置密码</a></li>'
-                            str += 	'</ul>'
-                            str += '<button type="button" class="btn btn-sm btn-default" onclick=tingyong(' + data + ');>停用</button>';
+                            str += '<ul class="dropdown-menu" role="menu">';
+                            str += '<li><a href="#" onclick=resetAdminPassword(' + data + ');>重置密码</a></li>'
+                            str += '</ul>'
+                            str += '<button type="button" class="btn btn-sm btn-default" onclick=disable(' + data + ');>停用</button>';
                         }
                         str += '<button type="button" class="btn btn-sm btn-default btn-danger" onclick=deleteAdmin(' + data + ');>删除</button>';
                         str += '</div>';
                         //超级管理员无法操作
                         if (data == "1") {
-                            str = "超管无法操作";
+                            str = '<button type="button" class="btn btn-sm btn-default" disabled="disabled">超管无法操作</button>';
                         }
                         return str;
                     }
@@ -503,59 +647,133 @@
             }
         });
     }
-    //添加管理员
-    function addAdmin() {
-        $("#addAdmin").modal("toggle");
+
+    //取消添加管理员
+    function cancelAddAdmin() {
         $("#addAccount").val("");
         $("#addUserName").val("");
-        $("#addPhone").val();
-        $("#addEmail").val();
-        $("#addType").val();
+        $("#addPhone").val("");
+        $("#addEmail").val("");
+        $("#addType").val("");
+        $("#result").text("");
+        $("#accountExist").hide();
     }
-    //确认添加管理员
-    function confirmAddAdmin() {
-        var addAccount = $("#addAccount").val();
-        var addUsername = $("#addUsername").val();
-        var addPhone = $("#addPhone").val();
-        var addEmail = $("#addEmail").val();
-        var addType = $("#addType").val();
-        if(addAccount == ''){
-            $("#result").text("账号不能为空！");
-            return ;
-        }
-        if(addUsername == ''){
-            $("#result").text("用户名称不能为空！")
-            return ;
-        }
-        if(addPhone == ''){
-            $("#result").text("手机号不能为空！")
-            return ;
-        }
-        if(addEmail == ''){
-            $("#result").text("邮箱不能为空！")
-            return ;
-        }
-        if(addType == ''){
-            $("#result").text("账号类型不能为空！")
-            return ;
-        }
 
-        if(!(/^1[34578]\d{9}$/.test(addPhone))) {
-            $("#result").text("手机号码有误，请重填！");
-            return ;
-        }
+    //删除管理员
+    function deleteAdmin(data) {
+        adminID = data;
+        $("#deleteModal").modal("toggle");
+    }
+
+    function confirmDelete() {
+        $.ajax({
+            type: "POST",
+            url: "${pageContext.request.contextPath}/accountManage/deleteAdmin",
+            async: true,//默认就是true
+            dataType: "json",
+            data: {adminID: adminID},
+            error: function(XMLHttpRequest, textStatus, errorThrown){
+                if(XMLHttpRequest.status == 200){
+                    alert("很抱歉，你没有操作权限！");
+                }else{
+                    alert("操作失败，请联系管理员");
+                }
+            },
+            success: function (result) {  //function1()
+                if (result.Msg == "success") {
+                    $("#deleteModal").modal("toggle");//弹窗消失
+                    //加载数据
+                    getAdminData();
+                } else {
+                    alert("操作失败，请联系管理员");
+                }
+            },
+            failure: function (result) {
+                alert('网络错误！');
+            },
+        });
+    }
+
+
+    //编辑管理员
+    function editAdmin(data) {
+        adminID = data;
 
         $.ajax({
             type: "POST",
-            url: "${pageContext.request.contextPath}/shareAdminConfigController/addAdmin.do",
+            url: "${pageContext.request.contextPath}/accountManage/getAdminById",
+            async: true,
+            dataType: 'json',
+            data: {adminID: adminID},
+            error: function(XMLHttpRequest, textStatus, errorThrown){
+                if(XMLHttpRequest.status == 200){
+                    alert("很抱歉，你没有操作权限！");
+                }else{
+                    alert("操作失败，请联系管理员");
+                }
+            },
+            success: function (data) {
+                //回显基础信息
+                console.log(data);
+                if(data.admin == "null"){
+                    alert("操作失败，请联系管理员")
+                }else {
+                    $("#updateAccount").val(data.admin.account);
+                    $("#updateUserName").val(data.admin.userName);
+                    $("#updatePhone").val(data.admin.phone);
+                    $("#updateEmail").val(data.admin.email);
+                    $("#updateType").val(data.admin.type);
+                }
+
+            }
+        });
+        $("#editAdmin").modal("toggle");
+    }
+
+    function confirmEditAdmin() {
+        var updateAccount = $("#updateAccount").val();
+        var updateUserName = $("#updateUserName").val();
+        var updatePhone = $("#updatePhone").val();
+        var updateEmail = $("#updateEmail").val();
+        var updataType = $("#updateType").val();
+        if (updateAccount == '') {
+            $("#editResult").text("账号不能为空！");
+            return;
+        }
+        if (updateUserName == '') {
+            $("#editResult").text("用户名称不能为空！")
+            return;
+        }
+        if (updatePhone == '') {
+            $("#editResult").text("手机号不能为空！")
+            return;
+        }
+        if (updateEmail == '') {
+            $("#editResult").text("邮箱不能为空！")
+            return;
+        }
+        if (updataType == '') {
+            $("#editResult").text("账号类型不能为空！")
+            return;
+        }
+
+        if (!(/^1[34578]\d{9}$/.test(updatePhone))) {
+            $("#editResult").text("手机号码有误，请重填！");
+            return;
+        }
+        $("#editResult").text("");
+        $.ajax({
+            type: "POST",
+            url: "${pageContext.request.contextPath}/accountManage/updateAdminById",
             async: true,//默认就是true
             dataType: "json",
             data: {
-                account: addAccount,
-                userName: addUserName,
-                phone:addPhone,
-                email:addEmail,
-                type:addType
+                id: adminID,
+                userName: updateUserName,
+                account: updateAccount,
+                phone:updatePhone,
+                email:updateEmail,
+                type:updataType
             },
             error: function(XMLHttpRequest, textStatus, errorThrown){
                 if(XMLHttpRequest.status == 200){
@@ -565,16 +783,209 @@
                 }
             },
             success: function (result) {  //function1()
-                if (result.status == 1) {
+                if (result.Msg == "success") {
+                    $("#editAdmin").modal("toggle");//弹窗消失
+
+                    $("#updateAccount").val("");
+                    $("#updateUserName").val("");
+                    $("#updatePhone").val("");
+                    $("#updateEmail").val("");
+                    $("#updateType").val("");
+                    //加载数据
+                    getAdminData();
+                } else {
+                    alert("操作失败，请联系管理员");
+                }
+            },
+            failure: function (result) {
+                alert('网络错误！');
+            },
+        });
+    }
+
+    //重置Admin密码
+    function resetAdminPassword(data) {
+        adminID = data;
+        $("#resetAdminPassword").modal("toggle");
+    }
+    function confirmResetAdminPassword() {
+        $.ajax({
+            type: "POST",
+            url: "${pageContext.request.contextPath}/accountManage/resetAdminPassword",
+            async: true,//默认就是true
+            dataType: "json",
+            data: {adminID: adminID},
+            error: function(XMLHttpRequest, textStatus, errorThrown){
+                if(XMLHttpRequest.status == 200){
+                    alert("很抱歉，你没有操作权限！");
+                }else{
+                    alert("操作失败，请联系管理员");
+                }
+            },
+            success: function (result) {  //function1()
+                if (result.Msg == "success") {
+                    $("#resetAdminPassword").modal("toggle");//弹窗消失
+                } else {
+                    alert("操作失败，请联系管理员");
+                }
+            },
+            failure: function (result) {
+                alert('网络错误！');
+            },
+        });
+    }
+
+    function editAuthConfig(data) {
+        alert(data);
+    }
+
+    function disable(data) {
+        adminID = data;
+        $("#disable").modal("toggle");
+    }
+    
+    function confirmDisable() {
+        $.ajax({
+            type: "POST",
+            url: "${pageContext.request.contextPath}/accountManage/disableAdmin",
+            async: true,//默认就是true
+            dataType: "json",
+            data: {
+                adminID: adminID
+            },
+            error: function(XMLHttpRequest, textStatus, errorThrown){
+                if(XMLHttpRequest.status == 200){
+                    alert("很抱歉，你没有操作权限！");
+                }else{
+                    alert("操作失败，请联系管理员");
+                }
+            },
+            success: function (result) {  //function1()
+                if (result.Msg == "success") {
+                    $("#disable").modal("toggle");//弹窗消失
+                    //加载数据
+                    getAdminData();
+                } else {
+                    alert("操作失败，请联系管理员");
+                }
+            },
+            failure: function (result) {
+                alert('网络错误！');
+            },
+        });
+    }
+
+    function enabled(data) {
+        adminID = data;
+        $("#enabledAdmin").modal("toggle");
+    }
+    
+    function confirmEnabled(data) {
+        $.ajax({
+            type: "POST",
+            url: "${pageContext.request.contextPath}/accountManage/enabledAdmin",
+            async: true,//默认就是true
+            dataType: "json",
+            data: {
+                adminID: adminID
+            },
+            error: function(XMLHttpRequest, textStatus, errorThrown){
+                if(XMLHttpRequest.status == 200){
+                    alert("很抱歉，你没有操作权限！");
+                }else{
+                    alert("操作失败，请联系管理员");
+                }
+            },
+            success: function (result) {  //function1()
+                if (result.Msg == "success") {
+                    $("#enabledAdmin").modal("toggle");//弹窗消失
+                    //加载数据
+                    getAdminData();
+                } else {
+                    alert("操作失败，请联系管理员");
+                }
+            },
+            failure: function (result) {
+                alert('网络错误！');
+            },
+        });
+    }
+
+    //添加管理员
+    function addAdmin() {
+        $("#addAdmin").modal("toggle");
+        $("#addAccount").val("");
+        $("#addUserName").val("");
+        $("#addPhone").val();
+        $("#addEmail").val();
+        $("#addType").val();
+    }
+
+    //确认添加管理员
+    function confirmAddAdmin() {
+        var addAccount = $("#addAccount").val();
+        var addUserName = $("#addUserName").val();
+        var addPhone = $("#addPhone").val();
+        var addEmail = $("#addEmail").val();
+        var addType = $("#addType").val();
+        if (addAccount == '') {
+            $("#result").text("账号不能为空！");
+            return;
+        }
+        if (addUserName == '') {
+            $("#result").text("用户名称不能为空！")
+            return;
+        }
+        if (addPhone == '') {
+            $("#result").text("手机号不能为空！")
+            return;
+        }
+        if (addEmail == '') {
+            $("#result").text("邮箱不能为空！")
+            return;
+        }
+        if (addType == '') {
+            $("#result").text("账号类型不能为空！")
+            return;
+        }
+
+        if (!(/^1[34578]\d{9}$/.test(addPhone))) {
+            $("#result").text("手机号码有误，请重填！");
+            return;
+        }
+
+        $.ajax({
+            type: "POST",
+            url: "${pageContext.request.contextPath}/accountManage/addAdmin",
+            async: true,//默认就是true
+            dataType: "json",
+            data: {
+                account: addAccount,
+                userName: addUserName,
+                phone: addPhone,
+                email: addEmail,
+                type: addType
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                if (XMLHttpRequest.status == 200) {
+                    alert("很抱歉，你没有操作权限！");
+                } else {
+                    alert("操作失败，请联系管理员");
+                }
+            },
+            success: function (result) {  //function1()
+                if (result.Msg == "success") {
                     $("#addAdmin").modal("toggle");
                     $("#addAccount").val("");
                     $("#addUserName").val("");
                     $("#addPhone").val("");
                     $("#addEmail").val("");
                     $("#addType").val("");
+                    $("#result").text("");
+                    $("#accountExist").hide();
                     //加载数据
                     getAdminData();
-                } else if (result.status == 3) {
+                } else if (result.Msg == "repeat") {
                     $("#accountExist").show();
                 } else {
                     alert("操作失败，请联系管理员");
@@ -585,6 +996,8 @@
             }
         });
     }
+
+
 </script>
 </body>
 

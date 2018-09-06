@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ArticleServiceMapper">
+
+    <!--查找文章信息-->
+    <select id="getArticleList" parameterType="com.rise.util.PageData"
+            resultType="com.rise.entity.common.RiseArticle">
+        SELECT
+           *
+        FROM
+            rise_article
+        order by id
+		LIMIT #{start},#{length};
+    </select>
+
+    <!--获取文章总数 -->
+    <select id="getArticleCount" parameterType="com.rise.util.PageData" resultType="int">
+		SELECT count(id) FROM rise_article;
+	</select>
+
+
+</mapper>

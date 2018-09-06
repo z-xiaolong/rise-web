@@ -241,13 +241,13 @@
                 <table id="logsDetailTable" class="table table-bordered ">
                     <thead>
                     <tr>
-                        <th style="display:none">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id</th>
-                        <th style="width:10%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;管理员账号</th>
-                        <th style="width:10%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;操作ip</th>
-                        <th style="width: 10%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;操作内容</th>
-                        <th style="width: 10%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;操作时间</th>
-                        <th style="width: 10%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;响应时间</th>
-                        <th style="width: 10%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;状态</th>
+                        <th style="display:none">id</th>
+                        <th style="width:10%">账号</th>
+                        <th style="width:10%">IP</th>
+                        <th style="width: 10%">内容</th>
+                        <th style="width: 10%">时间</th>
+                        <th style="width: 10%">响应时间</th>
+                        <th style="width: 10%">状态</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -433,7 +433,7 @@
             //参数显示
             "columns": [
                 {"data": "id", 'sClass': "text-center", "bSortable": false, "visible": false},
-                {"data": "userName", 'sClass': "text-center",},
+                {"data": "account", 'sClass': "text-center",},
                 {"data": "ip", 'sClass': "text-center"},
                 {"data": "description", 'sClass': "text-center"},
                 {
@@ -446,10 +446,10 @@
                 {"data":"status",'sClass':"text-center",
                     "render": function (data, type, full, meta) {
                         if(data == 1){
-                            return "操作成功";
+                            return "成功";
                         }
                         else if(data == 0){
-                            return "操作失败";
+                            return "失败";
                         }
                     }
                 },

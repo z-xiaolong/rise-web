@@ -3,8 +3,6 @@ package com.rise.aop;
 import com.rise.annotation.SystemLog;
 import com.rise.entity.common.Log;
 import com.rise.entity.common.RiseAdmin;
-import com.rise.entity.common.RiseUser;
-import com.rise.service.IpAddressService;
 import com.rise.service.LogService;
 import com.rise.util.WebUtil;
 import org.aspectj.lang.ProceedingJoinPoint;
@@ -94,6 +92,7 @@ public class LogAopAction {
 
                     System.out.println("+++++++++++++++user+++++++++++log:" + user);
                     log.setUserName(user.getUserName());
+                    log.setAccount(user.getAccount());
                     log.setOperationTime(new Date());
                     //获取系统ip
                     String ip = WebUtil.getIpAddress(request);

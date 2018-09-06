@@ -80,6 +80,7 @@ public class LoginController extends BaseController {
             session.setAttribute("Menus", menus);
             user.setPassword("***");
             session.setAttribute("user", user);
+            session.setAttribute("account",user.getAccount());
             return mv;
         }
         //教师登录

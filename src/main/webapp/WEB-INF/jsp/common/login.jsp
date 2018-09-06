@@ -61,6 +61,13 @@
 </div>
 </body>
 <script type="text/javascript">
+
+    $(document).ready(function () {
+        if (window != top) {
+            top.location.href = location.href;
+        }
+    });
+
     $(".login-submit").click(function () {
         var password = $("#password").val();
         var account = $("#account").val();

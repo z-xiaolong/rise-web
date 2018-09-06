@@ -16,12 +16,86 @@
             `type`
         FROM
             rise_admin
+        WHERE status != 2
         order by id
 		LIMIT #{start},#{length};
     </select>
 
     <!--获取RiseAdmin总数 -->
     <select id="getAdminCount" parameterType="com.rise.util.PageData" resultType="int">
-		SELECT count(id) FROM rise_admin;
+		SELECT count(id) FROM rise_admin WHERE status != 2;
 	</select>
+
+    <!--查重RiseAdmin-->
+    <select id="getAdminByAccount" parameterType="java.lang.String" resultType="int">
+		SELECT count(id) FROM rise_admin WHERE account = #{account};
+	</select>
+
+    <!--增加RiseAdmin-->
+    <insert id="addAdmin" parameterType="com.rise.entity.common.RiseAdmin">
+        INSERT INTO rise_admin(
+            account,
+            userName,
+            password,
+            phone,
+            email,
+            status,
+            `type`
+        )
+        VALUES
+        (#{account},#{userName},#{password},#{phone},#{email},#{status},#{type})
+    </insert>
+
+    <!--伪删除RiseAdmin-->
+    <update id="deleteAdmin" parameterType="java.lang.Integer">
+        UPDATE rise_admin SET `status` = 2 WHERE id = #{adminID};
+    </update>
+
+    <!--停用RiseAdmin账号-->
+    <update id="disableAdmin" parameterType="java.lang.Integer">
+        UPDATE rise_admin SET `status` = 0 WHERE id = #{adminID};
+    </update>
+
+    <!--启用RiseAdmin账号-->
+    <update id="enabledAdmin" parameterType="java.lang.Integer">
+        UPDATE rise_admin SET `status` = 1 WHERE id = #{adminID};
+    </update>
+
+    <!--通过adminID查找账号信息-->
+    <select id="getAdminById" parameterType="java.lang.Integer"
+            resultType="com.rise.entity.common.RiseAdmin">
+        SELECT
+            id,
+            account,
+            userName,
+            password,
+            phone,
+            email,
+            status,
+            `type`
+        FROM
+            rise_admin
+        WHERE
+	        id = #{adminID};
+    </select>
+
+    <!--更新RiseAdmin-->
+    <update id="updateAdminById" parameterType="com.rise.entity.common.RiseAdmin">
+        UPDATE rise_admin
+        SET userName = #{userName},
+            phone = #{phone},
+            email = #{email},
+            `type` = #{type}
+        WHERE
+            id = #{id};
+    </update>
+
+    <!--重置RiseAdmin密码-->
+    <update id="resetAdminPassword" parameterType="com.rise.entity.common.RiseAdmin">
+        UPDATE rise_admin
+        SET password = #{password}
+        WHERE
+            id = #{id};
+    </update>
+
 </mapper>

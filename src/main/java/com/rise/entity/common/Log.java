@@ -17,11 +17,20 @@ public class Log implements Serializable {
     private int id;
     private int status;  //1代表成功，0代表失败
     private String ip;
+    private String account;
     private String userName;
     private String description;
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date operationTime;
     private String responseTime;
+
+    public String getAccount() {
+        return account;
+    }
+
+    public void setAccount(String account) {
+        this.account = account;
+    }
 
     public int getStatus() {
         return status;
@@ -86,6 +95,7 @@ public class Log implements Serializable {
                 "id=" + id +
                 ", status=" + status +
                 ", ip='" + ip + '\'' +
+                ", account='" + account + '\'' +
                 ", userName='" + userName + '\'' +
                 ", description='" + description + '\'' +
                 ", operationTime=" + operationTime +
