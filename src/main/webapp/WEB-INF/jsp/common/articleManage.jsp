@@ -219,7 +219,8 @@
     </div>
 
     <!-- 【撤销发布新闻】弹出窗内容 -->
-    <div class="modal" id="cancelPublishModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    <div class="modal" id="cancelPublishModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
+         aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -232,7 +233,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>&nbsp;&nbsp;&nbsp;&nbsp;
-                    <button type="button" class="btn btn-primary" onclick="confirmDisable();">确定</button>
+                    <button type="button" class="btn btn-primary" onclick="confirmCancel();">确定</button>
                 </div>
             </div>
         </div>
@@ -270,9 +271,6 @@
     var articleID;
     var keyword;
 
-    function addArticle() {
-        alert("add");
-    }
     //加载Admin数据
     function getArticleData() {
         var status = 0;
@@ -302,7 +300,7 @@
                 {"data": "type", 'sClass': "text-center", "searching": true},
                 {"data": "author", 'sClass': "text-center", "searching": true},
                 {
-                    "data": "status", 'sClass': "text-center",
+                    "data": "status", 'sClass': "text-center", 'width': '10%',
                     "render": function (data, type, full, meta) {
                         status = data;
                         if (data == 1) {
@@ -314,8 +312,8 @@
                         return str;
                     }
                 },
-                {"data": "createTime", 'sClass': "text-center", "searching": true,'width': '10%'},
-                {"data": "publishTime", 'sClass': "text-center", "searching": true,'width': '10%'},
+                {"data": "createTime", 'sClass': "text-center", "searching": true, 'width': '10%'},
+                {"data": "publishTime", 'sClass': "text-center", "searching": true, 'width': '10%'},
                 {
                     "data": "id", 'sClass': "text-center", 'width': '20%',
                     "render": function (data, type, full, meta) {
@@ -354,13 +352,12 @@
         });
     }
 
-
-
-
-    function publish() {
-        alert("publish");
+    //添加新闻
+    function addArticle() {
+        window.location.href = "${pageContext.request.contextPath}/articleManage/toAddArticlePage";
     }
 
+    //撤销发布新闻
     function cancelPublish(data) {
         articleID = data;
         $("#cancelPublishModal").modal("toggle");
@@ -369,7 +366,42 @@
     function confirmCancel() {
         $.ajax({
             type: "POST",
-            url: "${pageContext.request.contextPath}/articleManage/cancelPublish",
+            url: "${pageContext.request.contextPath}/articleManage/cancelPublishArticle",
+            async: true,//默认就是true
+            dataType: "json",
+            data: {articleID: articleID},
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                if (XMLHttpRequest.status == 200) {
+                    alert("很抱歉，你没有操作权限！");
+                } else {
+                    alert("操作失败，请联系管理员");
+                }
+            },
+            success: function (result) {  //function1()
+                if (result.Msg == "success") {
+                    $("#cancelPublishModal").modal("toggle");//弹窗消失
+                    //加载数据
+                    getArticleData();
+                } else {
+                    alert("操作失败，请联系管理员");
+                }
+            },
+            failure: function (result) {
+                alert('网络错误！');
+            },
+        });
+    }
+
+    //删除新闻
+    function deleteArticle(data) {
+        articleID = data;
+        $("#deleteModal").modal("toggle");
+    }
+
+    function confirmDelete() {
+        $.ajax({
+            type: "POST",
+            url: "${pageContext.request.contextPath}/articleManage/deleteArticle",
             async: true,//默认就是true
             dataType: "json",
             data: {articleID: articleID},
@@ -395,55 +427,20 @@
         });
     }
 
-    //删除新闻
-    function deleteArticle(data) {
-        adminID = data;
-        $("#deleteModal").modal("toggle");
+    //发布新闻
+    function publish(data) {
+        articleID = data;
+        $("#publishArticle").modal("toggle");
     }
 
-    function confirmDelete() {
+    function confirmPublish(data) {
         $.ajax({
             type: "POST",
-            url: "${pageContext.request.contextPath}/articleManage/deleteArticle",
-            async: true,//默认就是true
-            dataType: "json",
-            data: {adminID: adminID},
-            error: function (XMLHttpRequest, textStatus, errorThrown) {
-                if (XMLHttpRequest.status == 200) {
-                    alert("很抱歉，你没有操作权限！");
-                } else {
-                    alert("操作失败，请联系管理员");
-                }
-            },
-            success: function (result) {  //function1()
-                if (result.Msg == "success") {
-                    $("#deleteModal").modal("toggle");//弹窗消失
-                    //加载数据
-                    getAdminData();
-                } else {
-                    alert("操作失败，请联系管理员");
-                }
-            },
-            failure: function (result) {
-                alert('网络错误！');
-            },
-        });
-    }
-
-
-    function enabled(data) {
-        adminID = data;
-        $("#enabledArticle").modal("toggle");
-    }
-
-    function confirmEnabled(data) {
-        $.ajax({
-            type: "POST",
-            url: "${pageContext.request.contextPath}/articleManage/enabledArticle",
+            url: "${pageContext.request.contextPath}/articleManage/publishArticle",
             async: true,//默认就是true
             dataType: "json",
             data: {
-                adminID: adminID
+                articleID: articleID
             },
             error: function (XMLHttpRequest, textStatus, errorThrown) {
                 if (XMLHttpRequest.status == 200) {
@@ -454,9 +451,9 @@
             },
             success: function (result) {  //function1()
                 if (result.Msg == "success") {
-                    $("#enabledAdmin").modal("toggle");//弹窗消失
+                    $("#publishArticle").modal("toggle");//弹窗消失
                     //加载数据
-                    getAdminData();
+                    getArticleData();
                 } else {
                     alert("操作失败，请联系管理员");
                 }

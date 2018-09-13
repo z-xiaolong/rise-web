@@ -1,13 +1,16 @@
 package com.rise.service.impl;
 
 import com.rise.dao.DaoSupport;
+import com.rise.entity.common.ArticleType;
 import com.rise.entity.common.RiseArticle;
+import com.rise.entity.common.SubArticleType;
 import com.rise.service.ArticleService;
 import com.rise.util.PageData;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -24,7 +27,7 @@ public class ArticleServiceImpl implements ArticleService {
     public List<RiseArticle> getArticleList(PageData pageData) {
         List<RiseArticle> list = new ArrayList<>();
         try {
-            list = (List<RiseArticle>) dao.findForList("ArticleServiceMapper.getArticleList",pageData);
+            list = (List<RiseArticle>) dao.findForList("ArticleServiceMapper.getArticleList", pageData);
             return list;
         } catch (Exception e) {
             e.printStackTrace();
@@ -35,10 +38,108 @@ public class ArticleServiceImpl implements ArticleService {
     @Override
     public int getArticleCount(PageData pageData) {
         try {
-            return (int) dao.findForObject("ArticleServiceMapper.getArticleCount",pageData);
+            return (int) dao.findForObject("ArticleServiceMapper.getArticleCount", pageData);
         } catch (Exception e) {
             e.printStackTrace();
         }
         return 0;
+    }
+
+    @Override
+    public String deleteArticle(int articleID) {
+        try {
+            dao.delete("ArticleServiceMapper.deleteArticle", articleID);
+            return "success";
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "error";
+        }
+    }
+
+    @Override
+    public String publishArticle(int articleID) {
+        try {
+            dao.update("ArticleServiceMapper.publishArticle",articleID);
+            return "success";
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "error";
+        }
+    }
+
+    @Override
+    public String cancelPublishArticle(int articleID) {
+        try {
+            dao.update("ArticleServiceMapper.cancelPublishArticle",articleID);
+            return "success";
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "error";
+        }
+    }
+
+    @Override
+    public List<ArticleType> getArticleTypeList() {
+        List<ArticleType> list = new ArrayList<>();
+        try {
+            list = (List<ArticleType>) dao.findForList("ArticleServiceMapper.getArticleTypeList",null);
+            return list;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    @Override
+    public List<SubArticleType> getSubArticleTypeList(int articleTypeID) {
+        List<SubArticleType> list = new ArrayList<>();
+        try {
+            list = (List<SubArticleType>) dao.findForList("ArticleServiceMapper.getSubArticleTypeList",articleTypeID);
+            return list;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    @Override
+    public String addArticle(RiseArticle riseArticle) {
+        int typeID = Integer.parseInt(riseArticle.getType());
+        int subTypeID = Integer.parseInt(riseArticle.getSubType());
+        String type = getTypeById(typeID);
+        String subType = getSubTypeById(subTypeID);
+        riseArticle.setType(type);
+        riseArticle.setSubType(subType);
+        riseArticle.setStatus(0);
+        riseArticle.setCreateTime(new Date());
+        riseArticle.setTitleImage("");
+
+        try {
+            dao.insert("ArticleServiceMapper.addArticle",riseArticle);
+            return "success";
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "error";
+        }
+    }
+
+    @Override
+    public String getTypeById(int typeID) {
+        try {
+            return (String) dao.findForObject("ArticleServiceMapper.getTypeById",typeID);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    @Override
+    public String getSubTypeById(int subTypeID) {
+        try {
+            return (String) dao.findForObject("ArticleServiceMapper.getSubTypeById",subTypeID);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 }

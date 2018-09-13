@@ -9,6 +9,7 @@
            *
         FROM
             rise_article
+        WHERE `status` != 2
         order by id
 		LIMIT #{start},#{length};
     </select>
@@ -18,5 +19,68 @@
 		SELECT count(id) FROM rise_article;
 	</select>
 
+    <!--伪删除新闻-->
+    <update id="deleteArticle" parameterType="java.lang.Integer">
+        UPDATE rise_article SET `status` = 2 WHERE id = #{articleID};
+    </update>
+
+    <!--发布新闻-->
+    <update id="publishArticle" parameterType="java.lang.Integer">
+        UPDATE rise_article SET `status` = 1 WHERE id = #{articleID};
+    </update>
+
+    <!--撤销发布新闻-->
+    <update id="cancelPublishArticle" parameterType="java.lang.Integer">
+        UPDATE rise_article SET `status` = 0 WHERE id = #{articleID};
+    </update>
+
+    <!--获取文章类型列表 -->
+    <select id="getArticleTypeList" resultType="com.rise.entity.common.ArticleType">
+		SELECT * FROM rise_catalog;
+	</select>
+
+    <!--获取文章子类型列表 -->
+    <select id="getSubArticleTypeList" resultType="com.rise.entity.common.SubArticleType">
+		SELECT
+            rise_subType.id,
+            typeName AS parentType,
+            subType,
+            subTypeName
+        FROM
+            rise_subType
+        LEFT JOIN rise_catalog ON rise_subType.parentID = rise_catalog.id
+        WHERE
+            parentID = #{articleTypeID}
+	</select>
+
+    <!--由ID获取文章类型 -->
+    <select id="getTypeById" resultType="java.lang.String">
+		SELECT typeName FROM rise_catalog WHERE id = #{typeID};
+	</select>
+
+    <!--由ID获取文章子类型 -->
+    <select id="getSubTypeById" resultType="java.lang.String">
+		SELECT subTypeName FROM rise_subType WHERE id = #{subTypeID};
+	</select>
+
+    <!--添加新闻 -->
+    <insert id="addArticle" parameterType="com.rise.entity.common.RiseArticle">
+        INSERT INTO rise_article(
+            title,
+            type,
+            subType,
+            createTime,
+            publishTime,
+            publisher,
+            author,
+            content,
+            browseCounts,
+            titleImage,
+            status
+        )
+        VALUES
+        (#{title},#{type},#{subType},#{createTime},#{publishTime},#{publisher},#{author},#{content},#{browseCounts},#{titleImage},#{status})
+
+    </insert>
 
 </mapper>

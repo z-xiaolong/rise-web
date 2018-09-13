@@ -177,7 +177,7 @@
             </div>
             <br/>
             <div class="bnsbox">
-                <table id="adminConfigList" class="table table-bordered ">
+                <table id="adminConfigList" class="table table-bordered " style="width: 100%">
                     <thead>
                     <tr>
                         <th style="display: none;">id</th>

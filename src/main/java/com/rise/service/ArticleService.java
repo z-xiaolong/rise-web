@@ -1,6 +1,8 @@
 package com.rise.service;
 
+import com.rise.entity.common.ArticleType;
 import com.rise.entity.common.RiseArticle;
+import com.rise.entity.common.SubArticleType;
 import com.rise.util.PageData;
 
 import java.util.List;
@@ -14,4 +16,20 @@ public interface ArticleService {
     public List<RiseArticle> getArticleList(PageData pageData);
 
     public int getArticleCount(PageData pageData);
+
+    public String deleteArticle(int articleID);
+
+    public String publishArticle(int articleID);
+
+    public String cancelPublishArticle(int articleID);
+
+    public List<ArticleType> getArticleTypeList();
+
+    public List<SubArticleType> getSubArticleTypeList(int articleTypeID);
+
+    public String addArticle(RiseArticle riseArticle);
+
+    public String getTypeById(int typeID);
+
+    public String getSubTypeById(int subTypeID);
 }

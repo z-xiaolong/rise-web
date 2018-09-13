@@ -10,6 +10,7 @@ import com.rise.service.AdminService;
 import com.rise.service.BasicService;
 import com.rise.util.MD5;
 import com.rise.util.PageData;
+import com.rise.util.SessionManage;
 import com.rise.util.UuidUtil;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -80,7 +81,10 @@ public class LoginController extends BaseController {
             session.setAttribute("Menus", menus);
             user.setPassword("***");
             session.setAttribute("user", user);
-            session.setAttribute("account",user.getAccount());
+            session.setAttribute("account", account);
+            session.setAttribute("type", user.getType());
+            SessionManage.addSession(user.getType(), account, session);
+            SessionManage.printMap();
             return mv;
         }
         //教师登录
@@ -113,16 +117,19 @@ public class LoginController extends BaseController {
     }
 
     @ResponseBody
-    @RequestMapping(value = "/loginOut")
+    @RequestMapping(value = "/logout")
     public Object hrsscLoginOut(HttpServletRequest request) {
         logBefore(logger, "++++++++++ 退出登录 ++++++++++");
         Map<String, Object> data = new HashMap<String, Object>();
         try {
             //清空session
             HttpSession session = request.getSession();
-            session.removeAttribute("user");
-            session.removeAttribute("Menus");
-            session.invalidate();
+            String type = (String) session.getAttribute("type");
+            String account = (String) session.getAttribute("account");
+            System.out.println("+++++++++++++++++++++session" + session);
+            SessionManage.printMap();
+            SessionManage.removeSession(type, account);
+            SessionManage.printMap();
         } catch (Exception e) {
             e.printStackTrace();
             return InterfaceResult.returnFailure();

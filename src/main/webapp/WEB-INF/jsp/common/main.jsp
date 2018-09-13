@@ -396,11 +396,12 @@
     function loginOut() {
         $.ajax({
             type: "POST",
-            url: "${pageContext.request.contextPath}/loginOut",
+            url: "${pageContext.request.contextPath}/logout",
             async: true,//默认就是true
             dataType: "json",
             data: {},
             success: function (result) {
+                var url = '${pageContext.request.contextPath}';
                 window.location.href = '${pageContext.request.contextPath}';
             },
             failure: function (result) {

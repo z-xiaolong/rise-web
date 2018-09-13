@@ -27,8 +27,7 @@ public class RiseArticle implements Serializable {
     private String titleImage;
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date createTime;
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    private Date publishTime;
+    private String publishTime;
 
     public String getAuthor() {
         return author;
@@ -127,12 +126,11 @@ public class RiseArticle implements Serializable {
         this.titleImage = titleImage;
     }
 
-    @JsonSerialize(using = DateSerializerPlus.class)
-    public Date getPublishTime() {
+    public String getPublishTime() {
         return publishTime;
     }
 
-    public void setPublishTime(Date publishTime) {
+    public void setPublishTime(String publishTime) {
         this.publishTime = publishTime;
     }
 

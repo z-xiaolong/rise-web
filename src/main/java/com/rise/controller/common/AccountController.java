@@ -29,7 +29,7 @@ public class AccountController extends BasicConroller {
     private AccountService accountServiceImpl;
 
     @RequestMapping(value = "/toAccountManagePage")
-    public ModelAndView toBannerPage(HttpServletRequest request) {
+    public ModelAndView toAccountManagePage(HttpServletRequest request) {
         ModelAndView mv = this.getModelAndView();
         mv.setViewName("common/accountManage");
         return mv;
