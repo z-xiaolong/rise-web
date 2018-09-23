@@ -1,5 +1,7 @@
 package com.rise.util;
 
+import com.rise.annotation.SystemLog;
+
 import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 import java.util.Map;
@@ -13,12 +15,21 @@ public class SessionManage extends HashMap implements Map {
     private static final long serialVersionUID = -5227806205814076389L;
     private static Map<String, HttpSession> sessionMap = new HashMap<>();
 
+
     public static void addSession(String type, String account, HttpSession session) {
 
         if (validate(type, account) == true) {
             removeSession(type, account);
+            account = type + account;
+            sessionMap.put(account, session);
+        } else {
+            account = type + account;
+            putNewSession(account, session);
         }
-        account = type + account;
+    }
+
+    @SystemLog(method = "登录系统")
+    private static void putNewSession(String account, HttpSession session) {
         sessionMap.put(account, session);
     }
 
@@ -30,14 +41,13 @@ public class SessionManage extends HashMap implements Map {
     public static void removeSession(String type, String account) {
         account = type + account;
         HttpSession session = sessionMap.get(account);
-        if (session == null) {
-            System.out.println("+++++++++++++++++accountKey" + account);
+        try {
+            session.invalidate();
+        }catch (IllegalStateException e){
 
-
+        }finally {
+            sessionMap.remove(account);
         }
-        session.invalidate();
-        sessionMap.remove(account);
-
     }
 
     public static void printMap() {

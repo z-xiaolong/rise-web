@@ -10,14 +10,44 @@
         FROM
             rise_article
         WHERE `status` != 2
-        order by id
+        order by createTime DESC
 		LIMIT #{start},#{length};
+    </select>
+
+    <!--通过ID查找文章-->
+    <select id="getArticleById" parameterType="java.lang.Integer"
+            resultType="com.rise.entity.common.RiseArticle">
+        SELECT
+           *
+        FROM
+            rise_article
+        WHERE id = #{articleID}
     </select>
 
     <!--获取文章总数 -->
     <select id="getArticleCount" parameterType="com.rise.util.PageData" resultType="int">
-		SELECT count(id) FROM rise_article;
+		SELECT count(id) FROM rise_article WHERE `status` != 2;
 	</select>
+
+    <select id="getArticleTypeId" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+        SELECT
+            rise_catalog.id
+        FROM
+            rise_article
+        LEFT JOIN rise_catalog ON rise_article.type = rise_catalog.typeName
+        WHERE
+            rise_article.id = #{articleID}
+    </select>
+    
+    <select id="getArticleSubTypeId" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+        SELECT
+            rise_subType.id
+        FROM
+            rise_article
+        LEFT JOIN rise_subType ON rise_article.subType = rise_subType.subTypeName
+        WHERE
+            rise_article.id = #{articleID}
+    </select>
 
     <!--伪删除新闻-->
     <update id="deleteArticle" parameterType="java.lang.Integer">
@@ -80,7 +110,23 @@
         )
         VALUES
         (#{title},#{type},#{subType},#{createTime},#{publishTime},#{publisher},#{author},#{content},#{browseCounts},#{titleImage},#{status})
-
     </insert>
+
+    <!--更新Article-->
+    <update id="updateArticle" parameterType="com.rise.entity.common.RiseArticle">
+        UPDATE rise_article
+        SET title = #{title},
+            `type` = #{type},
+            <if test="subType == ''">
+                subType = NULL,
+            </if>
+            <if test="subType != ''">
+                subType = #{subType},
+            </if>
+            publishTime = #{publishTime},
+            content = #{content}
+        WHERE
+            id = #{id};
+    </update>
 
 </mapper>

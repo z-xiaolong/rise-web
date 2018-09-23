@@ -10,6 +10,7 @@ import com.rise.util.PageData;
 import com.rise.util.Uploader;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
@@ -46,6 +47,24 @@ public class ArticleController extends BasicConroller {
         List<ArticleType> articleTypes = articleServiceImpl.getArticleTypeList();
         mv.setViewName("common/addArticle");
         mv.addObject("articleTypes", articleTypes);
+        return mv;
+    }
+
+    @RequestMapping(value = "/toEditArticlePage", method = RequestMethod.GET)
+    public ModelAndView toEditArticlePage(int articleID, HttpServletRequest request) {
+        System.out.println("+++++++++++++++++articleID:"+articleID);
+        ModelAndView mv = this.getModelAndView();
+        List<ArticleType> articleTypes = articleServiceImpl.getArticleTypeList();
+        RiseArticle article = articleServiceImpl.getArticleById(articleID);
+        int typeID = articleServiceImpl.getArticleTypeId(articleID);
+        int subTypeID = articleServiceImpl.getArticleSubTypeId(articleID);
+        List<SubArticleType> subTypes = articleServiceImpl.getSubArticleTypeList(typeID);
+        mv.setViewName("common/editArticle");
+        mv.addObject("articleTypes", articleTypes);
+        mv.addObject("article",article);
+        mv.addObject("typeID",typeID);
+        mv.addObject("subTypeID",subTypeID);
+        mv.addObject("subTypes",subTypes);
         return mv;
     }
 
@@ -88,7 +107,7 @@ public class ArticleController extends BasicConroller {
 
     @ResponseBody
     @RequestMapping(value = "/cancelPublishArticle")
-    @SystemLog(method = "删除新闻")
+    @SystemLog(method = "取消发布新闻")
     public Object cancelPublishArticle(int articleID) {
         Map<String, Object> map = new HashMap<>();
         String msg = articleServiceImpl.cancelPublishArticle(articleID);
@@ -116,6 +135,16 @@ public class ArticleController extends BasicConroller {
         article.setAuthor(user.getUserName());
         String msg = articleServiceImpl.addArticle(article);
         System.out.println(article);
+        map.put("Msg", msg);
+        return map;
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/editArticle")
+    @SystemLog(method = "编辑新闻")
+    public Object editArticle(RiseArticle article, HttpServletRequest request) {
+        Map<String, Object> map = new HashMap<>();
+        String msg = articleServiceImpl.updateArticle(article);
         map.put("Msg", msg);
         return map;
     }

@@ -271,7 +271,7 @@
     var articleID;
     var keyword;
 
-    //加载Admin数据
+    //加载File数据
     function getArticleData() {
         var status = 0;
         var table = $('#articleConfigList').DataTable({
@@ -298,7 +298,7 @@
                 {"data": "id", 'sClass': "text-center", "bSortable": false, "visible": false},
                 {"data": "title", 'sClass': "text-center", "searching": true},
                 {"data": "type", 'sClass': "text-center", "searching": true},
-                {"data": "author", 'sClass': "text-center", "searching": true},
+                {"data": "author", 'sClass': "text-center", "searching": true,'width': '12%',},
                 {
                     "data": "status", 'sClass': "text-center", 'width': '10%',
                     "render": function (data, type, full, meta) {
@@ -320,10 +320,10 @@
                         var str = "";
                         str += '<div class="btn-group">';
                         if (status == 0) {
-                            str += '<button type="button" class="btn btn-sm btn-default" onclick=editAdmin(' + data + ');>编辑</button>';
+                            str += '<button type="button" class="btn btn-sm btn-default" onclick=editArticle(' + data + ');>编辑</button>';
                             str += '<button type="button" class="btn btn-sm btn-default" onclick=publish(' + data + ');>发布</button>';
                         } else if (status == 1) {
-                            str += '<button type="button" class="btn btn-sm btn-default" onclick=editAdmin(' + data + ');>编辑</button>';
+                            str += '<button type="button" class="btn btn-sm btn-default" onclick=editArticle(' + data + ');>编辑</button>';
                             str += '<button type="button" class="btn btn-sm btn-default" onclick=cancelPublish(' + data + ');>撤回</button>';
                         }
                         str += '<button type="button" class="btn btn-sm btn-default btn-danger" onclick=deleteArticle(' + data + ');>删除</button>';
@@ -350,6 +350,11 @@
                 }
             }
         });
+    }
+
+    //编辑新闻
+    function editArticle(data) {
+        window.location.href = "${pageContext.request.contextPath}/articleManage/toEditArticlePage?articleID="+data;
     }
 
     //添加新闻

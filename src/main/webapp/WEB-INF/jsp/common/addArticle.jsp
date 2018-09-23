@@ -57,11 +57,7 @@
     <script src="/static/plugins/datepicker/bootstrap-datepicker.js"></script>
 
     <script src="/static/plugins/datetimepicker/jquery.datetimepicker.full.js"></script>
-    <!-- SlimScroll
-    <script src="../plugins/slimScroll/jquery.slimscroll.min.js"></script>
-     -->
-    <!-- FastClick -->
-    <!--<script src="../plugins/fastclick/fastclick.js"></script>-->
+
     <!-- AdminLTE App -->
     <script src="/static/js/app.min.js"></script>
     <!-- AdminLTE for demo purposes -->
@@ -87,12 +83,12 @@
 <!-- Main content -->
 <section class="content">
     <table style="width: 100%;">
-        <input type="hidden" id="articleID" name="id" value="${article.id }">
+        <input type="hidden" id="articleID" name="id" value="">
 
         <tr>
             <td align="center" style="color: red;position: absolute;padding-left: 63px; padding-top: 6px;">标题：</td>
             <td>
-                <input type="text" id="title" name="title" class="form-control" value="${article.title}"
+                <input type="text" id="title" name="title" class="form-control" style="border-radius: 3px;" value=""
                        placeholder="请输入标题"/>
             </td>
         </tr>
@@ -103,39 +99,18 @@
         <tr>
             <td align="center" style="color: red;padding-left: 18px;width: 150px;">文章类型：</td>
             <td>
-                <div class="dropdown" style="display: inline;">
-                    <button class="btn btn-default dropdown-toggle" type="button" id="menubtn" data-toggle="dropdown"
-                            style="width: 160px;background-color: #ffffff; text-align: left">
-                        <div style="width: 100px; position: absolute">
-                            <span id="articleType" >请选择文章类型</span>
-                        </div>
+                <select id="type" class="form-control" style="display: inline; width: 160px;border-radius: 3px;" onchange="articleType(this.value);">
+                    <c:forEach items="${articleTypes}" var="item">
+                        <option value="${item.id}">${item.typeName}</option>
+                    </c:forEach>
+                </select>
 
-                        <input type="hidden" id = "articleTypeName" value = "">
-                        <span class="caret" style="margin-left: 120px"></span>
-                    </button>
-                    <ul id ="menulist" class="dropdown-menu" role="menu" aria-labelledby="menubtn" style="margin-top:13px; z-index: 9999">
-                        <c:forEach items="${articleTypes}" var="item">
-                            <li role="presentation" value="${item.id}"><a role="menuitem" tabindex="1" href="#">${item.typeName}</a></li>
-                        </c:forEach>
-                    </ul>
-                </div>
+                <select id="subType" class="form-control" style="display: none; width: 160px;border-radius: 3px;" onchange="">
+                </select>
 
-                <div class="dropdown" id="subType" style="display: none;">
-                    <button class="btn btn-default dropdown-toggle" type="button" id="subMenubtn" data-toggle="dropdown"
-                            style="width: 160px;background-color: #ffffff; text-align: left">
-                        <div style="width: 100px; position: absolute">
-                            <span id="subArticleType"></span>
-                        </div>
-
-                        <input type="hidden" id = "subArticleTypeName" value = "">
-                        <span class="caret" style="margin-left: 120px"></span>
-                    </button>
-                    <ul id ="subMenulist" class="dropdown-menu" role="menu" aria-labelledby="subMenubtn" style="margin-top:13px; z-index: 9999">
-                    </ul>
-                </div>
                 <div style="display: inline">
                     <p align="center" style="color: red;padding-left: 30px;width: 150px; display: inline;">发布日期：</p>
-                    <input type="text" style="width:242px; height:34px;text-align:left;border: 1px solid #ccc; display: inline;" id="publishDate" placeholder="请选择时间" class="form-control"/>
+                    <input type="text" style="border-radius: 3px;width:242px; height:34px;text-align:left;border: 1px solid #ccc; display: inline;" id="publishDate" value="" placeholder="请选择时间" class="form-control"/>
                 </div>
             </td>
         </tr>
@@ -147,19 +122,19 @@
             <td align="center" style="color: red;position: absolute;padding-left: 63px; padding-top: 9px;">内容：
             </td>
             <td>
-                <div style="padding-top: 30px;margin-left: -85px;">
-                    <script type="text/plain" id="myEditor" name="myEditor">${article1.content}</script>
+                <div style="padding-top: 19px;margin-left: -87px;">
+                    <script type="text/plain" id="myEditor" name="myEditor"></script>
                 </div>
             </td>
         </tr>
     </table>
     <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-        <button type="button" class="btn btn-primary" onclick="saveArticle();">保存</button>
+        <button type="button" class="btn btn-default" onclick="cancelAdd()" data-dismiss="modal">取消</button>
+        <button type="button" class="btn btn-primary" onclick="saveArticle()">保存</button>
     </div>
     </form>
 
-    <!-- 【保存新闻】弹出窗内容 -->
+    <!-- 【添加新闻】弹出窗内容 -->
     <div class="modal" id="saveArticle" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
          aria-hidden="true">
         <div class="modal-dialog">
@@ -170,11 +145,11 @@
                     <h4 class="modal-title" align="center">提示</h4>
                 </div>
                 <div class="modal-body">
-                    <h4 align="center">确定保存？</h4>
+                    <h4 align="center">确定添加新闻？</h4>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>&nbsp;&nbsp;&nbsp;&nbsp;
-                    <button type="button" class="btn btn-primary" onclick="confirmSave();">确定</button>
+                    <button type="button" class="btn btn-primary" onclick="confirmAdd()">确定</button>
                 </div>
             </div>
         </div>
@@ -213,15 +188,6 @@
         um.addListener('focus', function () {
             $('#focush2').html('')
         });
-
-        var types = $("#about_type").val();
-        if (types == 1) {
-            $("#title").attr("readonly", true);
-            $("#code").attr("readonly", true);
-        } else {
-            $("#code").removeAttr("readonly");
-            $("#title").removeAttr("readonly");
-        }
     });
 
     //日期插件相关
@@ -237,35 +203,15 @@
         // minDate : 0 ,//最小日期今天
     });
 
-    //menubtn的点击事件
-    $("#menubtn").click(function (e) {
-            $("#menulist").toggle();
-            $("#subMenulist").hide();
-    });
 
-    //subMenubtn的点击事件
-    $("#subMenubtn").click(function (e) {
-        $("#subMenulist").toggle();
-        $("#menulist").hide();
-    });
-
-
-    //dropdownMenu的下拉列表点击事件
-    $("#menulist li").click(function (e) {
-        var articleTypeID;
-        $("#menulist").toggle();
-
-        $this = $(e.target);
-        $("#menubtn #articleType").text($this.text());
-        articleTypeID = $(this).val();
-        $("#articleTypeName").val(articleTypeID);
+    function articleType(data){
         $.ajax({
             type: "POST",
             url: "${pageContext.request.contextPath}/articleManage/getSubArticleTypeList",
             async: true,//默认就是true
             dataType: "json",
             data: {
-                articleTypeID: articleTypeID
+                articleTypeID: data
             },
             error: function (XMLHttpRequest, textStatus, errorThrown) {
                 if (XMLHttpRequest.status == 200) {
@@ -278,14 +224,12 @@
                 var data = result.data;
                 if (data == null || data == "") {
                     $("#subType").css("display","none");
-                    $("#subMenulist").children("li").remove();
+                    $("#subType").children("option").remove();
                 } else {
-                    $("#subMenulist").children("li").remove();
+                    $("#subType").children("option").remove();
                     for(var i = 0; i < data.length; i++){
-                        $("#subMenulist").append('<li role="presentation" value="'+data[i].id+'"><a role="menuitem" href="#" onclick="clickSub(this)">'+data[i].subTypeName+'</a></li>');
+                        $("#subType").append('<option value="'+data[i].id+'">'+data[i].subTypeName+'</option>');
                     }
-                    $("#subMenubtn #subArticleType").text(data[0].subTypeName);
-                    $("#subArticleTypeName").val(data[0].id);
                     $("#subType").css("display","inline");
                 }
 
@@ -294,54 +238,56 @@
                 alert('网络错误！');
             },
         });
-
-    });
-
-    function clickSub(obj) {
-        var str = $(obj).text();
-        $("#subMenulist").toggle();
-        $("#subMenubtn #subArticleType").text(str);
-        var subTypeName = $(obj).parent().val();
-        $("#subArticleTypeName").val(subTypeName);
     }
 
+
     //保存新闻
+    var id;
+    var title;
+    var type;
+    var subType;
+    var publishDate;
+    var content;
     function saveArticle() {
 
-        var id = $("#articleID").val();
+        id = $("#articleID").val();
         if(id == null || id == ""){
             id = -1;
         }
-        var title = $("#title").val();
+        title = $("#title").val();
         if(title == null || title == ""){
             $("#validate").modal("toggle");
             $("#errorMsg").text("文章标题不能为空！");
             return;
         }
-        var type = $("#articleTypeName").val();
+        type = $("#type").val();
         if(type == null || type == ""){
             $("#validate").modal("toggle");
             $("#errorMsg").text("文章类型不能为空！");
             return;
         }
-        var subType = $("#subArticleTypeName").val();
+        subType = $("#subType").val();
         if(subType == null || subType == ""){
             subType = -1;
         }
-        var publishDate = $("#publishDate").val();
+        publishDate = $("#publishDate").val();
         if(publishDate == null || publishDate == ""){
             $("#validate").modal("toggle");
             $("#errorMsg").text("发布日期不能为空！");
             return;
         }
-        var content = um.getContent();
+        content = um.getContent();
         if(content == null || content == ""){
             $("#validate").modal("toggle");
             $("#errorMsg").text("文章内容不能为空！");
             return;
         }
         $("#saveArticle").modal("toggle");
+        //confirmAdd(id,title,type,subType,publishDate,content);
+    }
 
+    //确定添加
+    function confirmAdd() {
         $.ajax({
             type: "POST",
             url: "${pageContext.request.contextPath}/articleManage/addArticle",
@@ -378,7 +324,10 @@
             },
         });
     }
-
+    //取消添加
+    function cancelAdd() {
+        window.location.href = "${pageContext.request.contextPath}/articleManage/toArticleManagePage";
+    }
 
 </script>
 </body>

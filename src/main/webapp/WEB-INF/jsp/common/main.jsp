@@ -83,18 +83,13 @@
                     </a>
 
                     </li>
-                    <!-- Control Sidebar Toggle Button -->
-                    <li onclick="refresh();"><a href="#"><i class="fa fa-refresh"></i></a>
-                        <input type="hidden" id="saveMenuId"/>
-                    </li>
-
                     <li onclick="systemConfigShow();"><a href="#" data-toggle="control-sidebar"><i
                             class="fa fa-gear"></i></a></li>
 
                     <ul id="systemConfig" class="systemConfigClass">
                         <li onclick="changePassword();"><a href="#" style="color: black;">修改密码</a></li>
                         <li onclick="operatLogs();"><a href="#" style="color: black;">操作日志</a></li>
-                        <li onclick="loginOut();"><a href="#" style="color: black;">退出登录</a></li>
+                        <li onclick=""><a href="${pageContext.request.contextPath}/logout" style="color: black;">退出登录</a></li>
                     </ul>
                 </ul>
             </div>
@@ -135,7 +130,8 @@
             <!-- Your Page Content Here -->
             <iframe id="menuFrame" name="menuFrame"
                     src="${pageContext.request.contextPath}/toWelcomePage" width="100%"
-                    height=100% frameborder="0" marginheight="0" marginwidth="0" onLoad="iFrameHeight()"></iframe>
+                    height=100% frameborder="0" marginheight="0" marginwidth="0" onLoad="iFrameHeight()">
+            </iframe>
 
         </section>
     </div>
@@ -393,7 +389,7 @@
     /********************************修改密码结束***********************************************/
 
     /*********************************退出登录*************************************************/
-    function loginOut() {
+    function logout() {
         $.ajax({
             type: "POST",
             url: "${pageContext.request.contextPath}/logout",
@@ -401,7 +397,6 @@
             dataType: "json",
             data: {},
             success: function (result) {
-                var url = '${pageContext.request.contextPath}';
                 window.location.href = '${pageContext.request.contextPath}';
             },
             failure: function (result) {
@@ -480,12 +475,15 @@
     /****************************************************************************************/
 
     function iFrameHeight() {
-        var ifm = document.getElementById("menuFrame");
+        document.getElementById("menuFrame").height=0;
+        document.getElementById("menuFrame").height=document.getElementById("menuFrame").contentWindow.document.body.scrollHeight;
+
+/*        var ifm = document.getElementById("menuFrame");
         var subWeb = document.frames ? document.frames["menuFrame"].document : ifm.contentDocument;
         if (ifm != null && subWeb != null) {
             ifm.height = subWeb.body.scrollHeight;
             ifm.width = subWeb.body.scrollWidth;
-        }
+        }*/
     }
 
     //处理左侧菜单栏是否选中
@@ -510,10 +508,6 @@
         });
     });
 
-    //点击刷新按钮
-    function refresh() {
-        location.reload();
-    }
 
     $(".main-header a").click(function () {
         window.localStorage.setItem("leftactive", "kongbai");

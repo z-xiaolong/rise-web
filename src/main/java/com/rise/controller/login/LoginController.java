@@ -45,7 +45,6 @@ public class LoginController extends BaseController {
     }
 
     @RequestMapping(value = "login")
-    @SystemLog(method = "登录系统")
     public ModelAndView login(@RequestParam(required = false) String account,
                               @RequestParam(required = false) String password,
                               @RequestParam(required = false) String type,
@@ -116,32 +115,25 @@ public class LoginController extends BaseController {
         return mv;
     }
 
-    @ResponseBody
     @RequestMapping(value = "/logout")
-    public Object hrsscLoginOut(HttpServletRequest request) {
+    public ModelAndView logout(HttpServletRequest request) {
         logBefore(logger, "++++++++++ 退出登录 ++++++++++");
-        Map<String, Object> data = new HashMap<String, Object>();
-        try {
-            //清空session
-            HttpSession session = request.getSession();
-            String type = (String) session.getAttribute("type");
-            String account = (String) session.getAttribute("account");
-            System.out.println("+++++++++++++++++++++session" + session);
-            SessionManage.printMap();
-            SessionManage.removeSession(type, account);
-            SessionManage.printMap();
-        } catch (Exception e) {
-            e.printStackTrace();
-            return InterfaceResult.returnFailure();
+        ModelAndView mv = this.getModelAndView();
+        mv.setViewName("common/login");
+        HttpSession session = request.getSession();
+        String type = (String) session.getAttribute("type");
+        String account = (String) session.getAttribute("account");
+        if(account == null || account ==""){
+            return mv;
         }
-        logAfter(logger);
-        return InterfaceResult.returnSuccess(data);
+        SessionManage.removeSession(type, account);
+        return mv;
     }
 
     @ResponseBody
     @RequestMapping(value = "/changePassword")
     @SystemLog(method = "修改密码")
-    public Object hrsscChangePassword(@RequestParam(required = true) String oldPassword,
+    public Object changePassword(@RequestParam(required = true) String oldPassword,
                                       @RequestParam(required = true) String newPassword,
                                       HttpServletRequest request) {
         logBefore(logger, "++++++++++ 管理员修改自己的密码 ++++++++++");

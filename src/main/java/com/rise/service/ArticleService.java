@@ -32,4 +32,12 @@ public interface ArticleService {
     public String getTypeById(int typeID);
 
     public String getSubTypeById(int subTypeID);
+
+    public RiseArticle getArticleById(int articleID);
+
+    public int getArticleTypeId(int articleID);
+
+    public int getArticleSubTypeId(int articleID);
+
+    public String updateArticle(RiseArticle article);
 }

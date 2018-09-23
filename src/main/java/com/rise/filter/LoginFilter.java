@@ -36,7 +36,7 @@ public class LoginFilter implements Filter {
         String account = (String) session.getAttribute("account");
         System.out.println(account);
         // 登陆页面无需过滤
-        if (path.indexOf("login") > -1 || path.indexOf("tologin") > -1 || path.indexOf("static") > -1) {
+        if (path.indexOf("login") > -1 || path.indexOf("logout") > -1 || path.indexOf("static") > -1 || path.indexOf("uploadImage") > -1) {
             chain.doFilter(servletRequest, servletResponse);
             return;
         }

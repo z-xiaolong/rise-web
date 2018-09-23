@@ -25,7 +25,7 @@ public class ArticleServiceImpl implements ArticleService {
 
     @Override
     public List<RiseArticle> getArticleList(PageData pageData) {
-        List<RiseArticle> list = new ArrayList<>();
+        List<RiseArticle> list = null;
         try {
             list = (List<RiseArticle>) dao.findForList("ArticleServiceMapper.getArticleList", pageData);
             return list;
@@ -140,6 +140,54 @@ public class ArticleServiceImpl implements ArticleService {
         } catch (Exception e) {
             e.printStackTrace();
             return null;
+        }
+    }
+
+    @Override
+    public RiseArticle getArticleById(int articleID) {
+        try {
+            return (RiseArticle) dao.findForObject("ArticleServiceMapper.getArticleById", articleID);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    @Override
+    public int getArticleTypeId(int articleID) {
+        try {
+            return (int) dao.findForObject("ArticleServiceMapper.getArticleTypeId",articleID);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return -1;
+        }
+    }
+
+    @Override
+    public int getArticleSubTypeId(int articleID) {
+        try {
+            return (int) dao.findForObject("ArticleServiceMapper.getArticleSubTypeId",articleID);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return -1;
+        }
+    }
+
+    @Override
+    public String updateArticle(RiseArticle article) {
+        try {
+            int typeID = Integer.parseInt(article.getType());
+            int subTypeID = Integer.parseInt(article.getSubType());
+            String type = getTypeById(typeID);
+            String subType = getSubTypeById(subTypeID);
+            article.setType(type);
+            article.setSubType(subType);
+            System.out.println("update+++++++++"+article);
+            dao.update("ArticleServiceMapper.updateArticle",article);
+            return "success";
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "error";
         }
     }
 }

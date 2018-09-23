@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="FileServiceMapper">
+
+    <!--查找文章信息-->
+    <select id="getFileList" parameterType="com.rise.util.PageData"
+            resultType="com.rise.entity.common.RiseFile">
+        SELECT
+           *
+        FROM
+            rise_file
+        WHERE fileType = #{typeID}
+        order by uploadTime DESC
+		LIMIT #{start},#{length};
+    </select>
+
+    <!--获取文章总数 -->
+    <select id="getFileCount" parameterType="com.rise.util.PageData" resultType="int">
+		SELECT count(id) FROM rise_file WHERE fileType = #{typeID};
+	</select>
+
+    <select id="getFileTypeList" parameterType="com.rise.util.PageData" resultType="com.rise.entity.common.FileType">
+        SELECT * FROM rise_fileType;
+    </select>
+
+
+
+</mapper>
