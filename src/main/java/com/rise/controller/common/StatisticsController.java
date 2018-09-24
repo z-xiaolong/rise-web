@@ -18,8 +18,6 @@ import java.util.List;
 @RequestMapping(value = "statisticsManage")
 public class StatisticsController extends BasicConroller{
 
-
-
     @RequestMapping(value = "/toStatisticsManagePage")
     public ModelAndView toStatisticsManagePage(HttpServletRequest request) {
         ModelAndView mv = this.getModelAndView();
