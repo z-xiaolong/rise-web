@@ -55,7 +55,7 @@
     <script src="/static/plugins/bootstrap-fileinput/js/fileinput.min.js"></script>
     <link href="/static/plugins/bootstrap-fileinput/themes/explorer-fas/theme.js" rel="stylesheet">
     <script src="/static/plugins/bootstrap-fileinput/js/locales/zh.js"></script>
-
+    <script type="text/javascript" src="/static/js/fileInput.js"></script>
 
 </head>
 <style type="text/css">
@@ -282,7 +282,15 @@
                     </button>
                 </div>
                 <div class="modal-body">
-
+                    <div class="container-fluid">
+                        <form id="form" action="upload/insert" method="post" enctype="multipart/form-data">
+                            <div class="row form-group">
+                                <div class="col-sm-12">
+                                    <input id="input-id" name="file" multiple type="file" data-show-caption="true">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -304,13 +312,6 @@
         //加载数据
         getFileData(1);
         $("#file").show();
-        $("#fileUpload").fileinput({
-            showPreview: false,
-            showUpload: false,
-            elErrorContainer: '#kartik-file-errors',
-            //allowedFileExtensions: ["jpg", "png", "gif"]
-            //uploadUrl: '/site/file-upload-single'
-        });
     });
 
 
