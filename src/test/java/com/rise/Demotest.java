@@ -1,3 +1,4 @@
+package com.rise;
 
 import org.junit.*;
 
