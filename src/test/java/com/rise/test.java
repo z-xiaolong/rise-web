@@ -1,15 +1,6 @@
-package com.rise.test;
-
-import com.maxmind.geoip2.DatabaseReader;
-import com.maxmind.geoip2.model.CityResponse;
-import com.maxmind.geoip2.record.*;
-import com.rise.util.SessionMap;
+package com.rise;
 
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletRequestWrapper;
-import javax.servlet.http.HttpSession;
-import java.io.File;
 
 import java.net.InetAddress;
 import java.util.HashMap;
